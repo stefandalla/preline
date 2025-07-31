@@ -8,7 +8,7 @@
 
 import { dispatch } from "../../utils";
 import Calendar from "vanilla-calendar-pro";
-import { DatesArr, Range } from "vanilla-calendar-pro/types";
+import { DatesArr, Range } from "vanilla-calendar-pro";
 
 import CustomVanillaCalendar from "./vanilla-datepicker-pro";
 import { templates } from "./templates";
