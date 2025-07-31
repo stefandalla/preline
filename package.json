@@ -55,7 +55,6 @@
   },
 	"devDependencies": {
 		"@types/clipboard": "^2.0.7",
-		"@types/apexcharts": "^1.7.0",
 		"@types/datatables.net": "^1.10.0",
 		"@types/dropzone": "^5.7.8",
 		"@types/jquery": "^3.5.30",
