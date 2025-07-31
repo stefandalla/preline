@@ -48,10 +48,15 @@
 		"generate-dts": "dts-bundle-generator --config dts-config.js"
 	},
 	"dependencies": {
-    "@floating-ui/dom": "^1.6.13"
+    "@floating-ui/dom": "^1.6.13",
+    "vanilla-calendar-pro": "^2.9.0",
+    "apexcharts": "^3.45.0",
+    "datatables.net": "^2.0.0"
   },
 	"devDependencies": {
 		"@types/clipboard": "^2.0.7",
+		"@types/apexcharts": "^1.7.0",
+		"@types/datatables.net": "^1.10.0",
 		"@types/dropzone": "^5.7.8",
 		"@types/jquery": "^3.5.30",
 		"@types/lodash": "^4.17.6",

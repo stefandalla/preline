@@ -51,6 +51,8 @@ declare global {
 	interface Window {
 		HS_CLIPBOARD_SELECTOR: string;
 
+		ApexCharts: typeof import('apexcharts');
+
 		HSStaticMethods: IStaticMethods;
 
 		$hsCopyMarkupCollection: ICollectionItem<HSCopyMarkup>[];
