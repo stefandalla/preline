@@ -1,4 +1,4 @@
-import { Config } from 'datatables.net-dt';
+import { Config } from 'datatables.net';
 
 interface IDataTablePagingOptions {
 	pageBtnClasses?: string;
