@@ -1,4 +1,4 @@
-/* Custom styles for the AI Agents Dashboard */
+/* Custom CRM Styles */
 
 /* Smooth transitions for all interactive elements */
 * {
@@ -38,11 +38,11 @@
 }
 
 /* Enhanced hover effects for cards */
-.agent-card {
+.card-hover {
   transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 }
 
-.agent-card:hover {
+.card-hover:hover {
   transform: translateY(-2px);
   box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
 }
@@ -134,65 +134,72 @@ tbody tr:hover {
   box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
 }
 
-/* Gradient backgrounds for stats cards */
-.stat-card-1 {
-  background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
+/* Sidebar navigation enhancements */
+.sidebar-nav a {
+  transition: all 0.2s ease;
 }
 
-.stat-card-2 {
-  background: linear-gradient(135deg, #f0fdf4, #dcfce7);
+.sidebar-nav a:hover {
+  transform: translateX(4px);
 }
 
-.stat-card-3 {
-  background: linear-gradient(135deg, #fefce8, #fef3c7);
+/* Stats card animations */
+.stats-card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.stat-card-4 {
-  background: linear-gradient(135deg, #fdf2f8, #fce7f3);
+.stats-card:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-.dark .stat-card-1,
-.dark .stat-card-2,
-.dark .stat-card-3,
-.dark .stat-card-4 {
-  background: linear-gradient(135deg, #374151, #4b5563);
+/* Kanban card styling */
+.kanban-card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
 }
 
-/* Agent type icons styling */
-.agent-icon {
+.kanban-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Company card hover effects */
+.company-card {
+  transition: all 0.3s ease;
+}
+
+.company-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+}
+
+/* Progress bars */
+.progress-bar {
+  transition: width 0.5s ease-in-out;
+}
+
+/* Toast notifications */
+.toast {
+  backdrop-filter: blur(10px);
+}
+
+/* Form enhancements */
+.form-input:focus {
+  transform: scale(1.02);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+/* Avatar hover effects */
+.avatar {
   transition: transform 0.2s ease;
 }
 
-.agent-icon:hover {
-  transform: scale(1.1);
+.avatar:hover {
+  transform: scale(1.05);
 }
 
-/* Responsive improvements */
-@media (max-width: 768px) {
-  .sidebar {
-    transform: translateX(-100%);
-  }
-  
-  .sidebar.open {
-    transform: translateX(0);
-  }
-}
-
-/* Custom animations for status changes */
-.status-change {
-  animation: statusPulse 0.5s ease-in-out;
-}
-
-@keyframes statusPulse {
-  0%, 100% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.05);
-  }
-}
-
-/* Enhanced dropdown styling */
+/* Dropdown menu enhancements */
 .dropdown-menu {
   backdrop-filter: blur(10px);
   background: rgba(255, 255, 255, 0.95);
@@ -202,26 +209,29 @@ tbody tr:hover {
   background: rgba(31, 41, 55, 0.95);
 }
 
-/* Progress indicators */
-.progress-ring {
-  transition: stroke-dasharray 0.3s ease;
+/* Search input enhancements */
+.search-input {
+  transition: all 0.2s ease;
 }
 
-/* Tooltip enhancements */
-.tooltip {
-  backdrop-filter: blur(8px);
-  background: rgba(0, 0, 0, 0.8);
+.search-input:focus {
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
 }
 
-/* Form field enhancements */
-.form-field {
-  position: relative;
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .mobile-hidden {
+    display: none;
+  }
+  
+  .mobile-full {
+    width: 100%;
+  }
 }
 
-.form-field input:focus + label,
-.form-field textarea:focus + label {
-  color: #3b82f6;
-  transform: translateY(-2px);
+/* Dark mode transitions */
+.dark-transition {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 
 /* Success/Error state animations */
@@ -253,4 +263,113 @@ tbody tr:hover {
   75% {
     transform: translateX(5px);
   }
+}
+
+/* Loading spinner */
+.spinner {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Gradient backgrounds */
+.gradient-bg-1 {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.gradient-bg-2 {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+}
+
+.gradient-bg-3 {
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+}
+
+.gradient-bg-4 {
+  background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+}
+
+/* Custom checkbox styling */
+.custom-checkbox {
+  appearance: none;
+  width: 1rem;
+  height: 1rem;
+  border: 2px solid #d1d5db;
+  border-radius: 0.25rem;
+  background-color: white;
+  position: relative;
+  cursor: pointer;
+}
+
+.custom-checkbox:checked {
+  background-color: #3b82f6;
+  border-color: #3b82f6;
+}
+
+.custom-checkbox:checked::after {
+  content: '✓';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 0.75rem;
+  font-weight: bold;
+}
+
+/* Responsive table */
+@media (max-width: 640px) {
+  .responsive-table {
+    font-size: 0.875rem;
+  }
+  
+  .responsive-table th,
+  .responsive-table td {
+    padding: 0.5rem;
+  }
+}
+
+/* Section transitions */
+.section {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Interactive elements */
+.interactive:hover {
+  transform: scale(1.02);
+}
+
+.interactive:active {
+  transform: scale(0.98);
+}
+
+/* Custom shadows */
+.shadow-soft {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.shadow-medium {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.shadow-strong {
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
 }
