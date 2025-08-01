@@ -8,7 +8,10 @@
 
 import { dispatch } from "../../utils";
 import Calendar from "vanilla-calendar-pro";
-import type { DatesArr, Range } from "vanilla-calendar-pro";
+
+// Define custom types since they're not exported from vanilla-calendar-pro
+type DatesArr = string[];
+type Range<T> = T extends number ? number : never;
 
 import CustomVanillaCalendar from "./vanilla-datepicker-pro";
 import { templates } from "./templates";
