@@ -1,7 +1,10 @@
+export interface AutoInitClassConstructor {
+	autoInit: () => void;
+	new (...args: any[]): any;
+}
+
 export interface ISpaCollectionItem {
 	key: string;
-	fn: {
-		autoInit: () => void;
-	};
+	fn: AutoInitClassConstructor;
 	collection: string;
 }

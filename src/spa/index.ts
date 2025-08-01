@@ -11,7 +11,7 @@ declare var Dropzone: any;
 declare var noUiSlider: any;
 declare var VanillaCalendarPro: any;
 
-import { ISpaCollectionItem } from "../spa/interfaces";
+import { ISpaCollectionItem, AutoInitClassConstructor } from "../spa/interfaces";
 
 import HSCopyMarkup from "../plugins/copy-markup";
 import HSAccordion from "../plugins/accordion";
@@ -45,7 +45,7 @@ import HSTreeView from "../plugins/tree-view";
 if (typeof window !== "undefined") {
 	try {
 		if (typeof DataTable !== "undefined" && typeof jQuery !== "undefined") {
-			HSDataTable = require("../plugins/datatable").default;
+			HSDataTable = require("../plugins/datatable").default as AutoInitClassConstructor;
 		}
 	} catch (e) {
 		console.warn("HSDataTable: Required dependencies not found");
@@ -54,7 +54,7 @@ if (typeof window !== "undefined") {
 
 	try {
 		if (typeof _ !== "undefined" && typeof Dropzone !== "undefined") {
-			HSFileUpload = require("../plugins/file-upload").default;
+			HSFileUpload = require("../plugins/file-upload").default as AutoInitClassConstructor;
 		}
 	} catch (e) {
 		console.warn("HSFileUpload: Required dependencies not found");
@@ -63,7 +63,7 @@ if (typeof window !== "undefined") {
 
 	try {
 		if (typeof noUiSlider !== "undefined") {
-			HSRangeSlider = require("../plugins/range-slider").default;
+			HSRangeSlider = require("../plugins/range-slider").default as AutoInitClassConstructor;
 		}
 	} catch (e) {
 		console.warn("HSRangeSlider: Required dependencies not found");
