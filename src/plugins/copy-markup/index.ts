@@ -213,7 +213,7 @@ class HSCopyMarkup
 
 declare global {
 	interface Window {
-		HSCopyMarkup: Function;
+		HSCopyMarkup: typeof HSCopyMarkup;
 		$hsCopyMarkupCollection: ICollectionItem<HSCopyMarkup>[];
 	}
 }

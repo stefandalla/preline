@@ -125,7 +125,7 @@ class HSRemoveElement
 
 declare global {
 	interface Window {
-		HSRemoveElement: Function;
+		HSRemoveElement: typeof HSRemoveElement;
 		$hsRemoveElementCollection: ICollectionItem<HSRemoveElement>[];
 	}
 }

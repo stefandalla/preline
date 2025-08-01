@@ -351,7 +351,7 @@ class HSTreeView extends HSBasePlugin<ITreeViewOptions> implements ITreeView {
 
 declare global {
 	interface Window {
-		HSTreeView: Function;
+		HSTreeView: typeof HSTreeView;
 		$hsTreeViewCollection: ICollectionItem<HSTreeView>[];
 	}
 }

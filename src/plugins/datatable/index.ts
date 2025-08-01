@@ -531,7 +531,7 @@ class HSDataTable
 
 declare global {
 	interface Window {
-		HSDataTable: Function;
+		HSDataTable: typeof HSDataTable;
 		$hsDataTableCollection: ICollectionItem<HSDataTable>[];
 	}
 }

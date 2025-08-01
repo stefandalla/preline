@@ -201,7 +201,7 @@ class HSRangeSlider
 
 declare global {
 	interface Window {
-		HSRangeSlider: Function;
+		HSRangeSlider: typeof HSRangeSlider;
 		$hsRangeSliderCollection: ICollectionItem<HSRangeSlider>[];
 	}
 }

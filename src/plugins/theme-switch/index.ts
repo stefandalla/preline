@@ -204,7 +204,7 @@ class HSThemeSwitch
 
 declare global {
 	interface Window {
-		HSThemeSwitch: Function;
+		HSThemeSwitch: typeof HSThemeSwitch;
 		$hsThemeSwitchCollection: ICollectionItem<HSThemeSwitch>[];
 	}
 }

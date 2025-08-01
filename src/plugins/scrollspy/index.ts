@@ -239,7 +239,7 @@ class HSScrollspy extends HSBasePlugin<IScrollspyOptions> implements IScrollspy 
 
 declare global {
 	interface Window {
-		HSScrollspy: Function;
+		HSScrollspy: typeof HSScrollspy;
 		$hsScrollspyCollection: ICollectionItem<HSScrollspy>[];
 	}
 }

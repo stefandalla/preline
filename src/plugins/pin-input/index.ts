@@ -320,7 +320,7 @@ class HSPinInput extends HSBasePlugin<IPinInputOptions> implements IPinInput {
 
 declare global {
 	interface Window {
-		HSPinInput: Function;
+		HSPinInput: typeof HSPinInput;
 		$hsPinInputCollection: ICollectionItem<HSPinInput>[];
 	}
 }

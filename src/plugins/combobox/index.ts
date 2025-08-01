@@ -1201,7 +1201,7 @@ class HSComboBox extends HSBasePlugin<IComboBoxOptions> implements IComboBox {
 
 declare global {
 	interface Window {
-		HSComboBox: Function;
+		HSComboBox: typeof HSComboBox;
 		$hsComboBoxCollection: ICollectionItem<HSComboBox>[];
 	}
 }

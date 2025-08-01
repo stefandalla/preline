@@ -432,7 +432,7 @@ class HSStrongPassword
 
 declare global {
 	interface Window {
-		HSStrongPassword: Function;
+		HSStrongPassword: typeof HSStrongPassword;
 		$hsStrongPasswordCollection: ICollectionItem<HSStrongPassword>[];
 	}
 }

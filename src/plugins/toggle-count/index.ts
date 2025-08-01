@@ -142,7 +142,7 @@ class HSToggleCount
 
 declare global {
 	interface Window {
-		HSToggleCount: Function;
+		HSToggleCount: typeof HSToggleCount;
 		$hsToggleCountCollection: ICollectionItem<HSToggleCount>[];
 	}
 }

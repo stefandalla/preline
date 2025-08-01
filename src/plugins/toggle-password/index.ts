@@ -222,7 +222,7 @@ class HSTogglePassword
 
 declare global {
 	interface Window {
-		HSTogglePassword: Function;
+		HSTogglePassword: typeof HSTogglePassword;
 		$hsTogglePasswordCollection: ICollectionItem<HSTogglePassword>[];
 	}
 }

@@ -192,7 +192,7 @@ class HSTextareaAutoHeight
 
 declare global {
 	interface Window {
-		HSTextareaAutoHeight: Function;
+		HSTextareaAutoHeight: typeof HSTextareaAutoHeight;
 		$hsTextareaAutoHeightCollection: ICollectionItem<HSTextareaAutoHeight>[];
 	}
 }

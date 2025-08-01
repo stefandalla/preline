@@ -313,7 +313,7 @@ class HSInputNumber
 
 declare global {
 	interface Window {
-		HSInputNumber: Function;
+		HSInputNumber: typeof HSInputNumber;
 		$hsInputNumberCollection: {
 			id: number;
 			element: HSInputNumber;

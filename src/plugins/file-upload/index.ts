@@ -412,7 +412,7 @@ class HSFileUpload
 
 declare global {
 	interface Window {
-		HSFileUpload: Function;
+		HSFileUpload: typeof HSFileUpload;
 		$hsFileUploadCollection: ICollectionItem<HSFileUpload>[];
 	}
 }

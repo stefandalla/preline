@@ -1083,7 +1083,7 @@ class HSCarousel extends HSBasePlugin<ICarouselOptions> implements ICarousel {
 
 declare global {
 	interface Window {
-		HSCarousel: Function;
+		HSCarousel: typeof HSCarousel;
 		$hsCarouselCollection: ICollectionItem<HSCarousel>[];
 	}
 }

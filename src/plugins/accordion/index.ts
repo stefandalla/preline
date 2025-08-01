@@ -306,7 +306,7 @@ class HSAccordion
 
 declare global {
 	interface Window {
-		HSAccordion: Function;
+		HSAccordion: typeof HSAccordion;
 		$hsAccordionCollection: ICollectionItem<HSAccordion>[];
 	}
 }

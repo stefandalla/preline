@@ -709,7 +709,7 @@ class HSLayoutSplitter
 
 declare global {
 	interface Window {
-		HSLayoutSplitter: Function;
+		HSLayoutSplitter: typeof HSLayoutSplitter;
 		$hsLayoutSplitterCollection: ICollectionItem<HSLayoutSplitter>[];
 	}
 }

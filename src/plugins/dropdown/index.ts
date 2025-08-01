@@ -1009,7 +1009,7 @@ class HSDropdown extends HSBasePlugin<{}, IHTMLElementFloatingUI>
 
 declare global {
 	interface Window {
-		HSDropdown: Function;
+		HSDropdown: typeof HSDropdown;
 		$hsDropdownCollection: ICollectionItem<HSDropdown>[];
 	}
 }

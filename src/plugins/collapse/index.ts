@@ -203,7 +203,7 @@ class HSCollapse extends HSBasePlugin<{}> implements ICollapse {
 
 declare global {
 	interface Window {
-		HSCollapse: Function;
+		HSCollapse: typeof HSCollapse;
 		$hsCollapseCollection: ICollectionItem<HSCollapse>[];
 	}
 }

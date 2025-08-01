@@ -899,7 +899,7 @@ class HSStepper extends HSBasePlugin<{}> implements IStepper {
 
 declare global {
 	interface Window {
-		HSStepper: Function;
+		HSStepper: typeof HSStepper;
 		$hsStepperCollection: ICollectionItem<HSStepper>[];
 	}
 }

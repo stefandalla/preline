@@ -689,7 +689,7 @@ class HSOverlay extends HSBasePlugin<{}> implements IOverlay {
 
 declare global {
 	interface Window {
-		HSOverlay: Function;
+		HSOverlay: typeof HSOverlay;
 		$hsOverlayCollection: ICollectionItem<HSOverlay>[];
 	}
 }

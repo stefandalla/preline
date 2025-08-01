@@ -314,7 +314,7 @@ class HSTooltip extends HSBasePlugin<{}> implements ITooltip {
 
 declare global {
 	interface Window {
-		HSTooltip: Function;
+		HSTooltip: typeof HSTooltip;
 		$hsTooltipCollection: ICollectionItem<HSTooltip>[];
 	}
 }
