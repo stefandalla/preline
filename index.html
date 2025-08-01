@@ -2,326 +2,298 @@
 <html lang="en" class="h-full">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Preline UI Dashboard - Component Showcase</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Preline UI - Component Showcase</title>
   
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
   
-  <!-- Preline UI -->
-  <link rel="stylesheet" href="./variants.css">
+  <!-- Preline CSS -->
+  <link rel="stylesheet" href="https://preline.co/assets/css/main.min.css">
   
-  <!-- Custom styles -->
-  <link rel="stylesheet" href="./css/custom.css">
+  <!-- Custom Styles -->
+  <style>
+    .component-card {
+      transition: all 0.3s ease;
+    }
+    .component-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    }
+    .gradient-bg {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    }
+    .code-preview {
+      background: #1e293b;
+      border-radius: 8px;
+    }
+    .sidebar-transition {
+      transition: transform 0.3s ease-in-out;
+    }
+    @media (max-width: 768px) {
+      .sidebar-mobile {
+        transform: translateX(-100%);
+      }
+      .sidebar-mobile.open {
+        transform: translateX(0);
+      }
+    }
+  </style>
 </head>
 
 <body class="bg-gray-50 dark:bg-neutral-900">
-  <!-- Navigation Header -->
-  <header class="sticky top-0 inset-x-0 flex flex-wrap md:justify-start md:flex-nowrap z-[48] w-full bg-white border-b text-sm py-2.5 lg:ps-[260px] dark:bg-neutral-800 dark:border-neutral-700">
-    <nav class="px-4 sm:px-6 flex basis-full items-center w-full mx-auto">
-      <div class="me-5 lg:me-0 lg:hidden">
-        <a class="flex-none rounded-md text-xl inline-block font-semibold focus:outline-none focus:opacity-80" href="#" aria-label="Preline">
-          <svg class="w-28 h-auto" width="116" height="32" viewBox="0 0 116 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M33.5696 30.8182V11.3182H37.4474V13.7003H37.6229C37.7952 13.3187 38.0445 12.9309 38.3707 12.5369C38.7031 12.1368 39.134 11.8045 39.6634 11.5398C40.1989 11.2689 40.8636 11.1335 41.6577 11.1335C42.6918 11.1335 43.6458 11.4044 44.5199 11.946C45.3939 12.4815 46.0926 13.291 46.6158 14.3743C47.139 15.4515 47.4006 16.8026 47.4006 18.4276C47.4006 20.0095 47.1451 21.3452 46.6342 22.4347C46.1295 23.518 45.4401 24.3397 44.5661 24.8999C43.6982 25.4538 42.7256 25.7308 41.6484 25.7308C40.8852 25.7308 40.2358 25.6046 39.7003 25.3523C39.1709 25.0999 38.737 24.7829 38.3984 24.4013C38.0599 24.0135 37.8014 23.6226 37.6229 23.2287H37.5028V30.8182H33.5696ZM37.4197 18.4091C37.4197 19.2524 37.5367 19.9879 37.7706 20.6158C38.0045 21.2436 38.343 21.733 38.7862 22.0838C39.2294 22.4285 39.768 22.6009 40.402 22.6009C41.0421 22.6009 41.5838 22.4254 42.027 22.0746C42.4702 21.7176 42.8056 21.2251 43.0334 20.5973C43.2673 19.9633 43.3842 19.2339 43.3842 18.4091C43.3842 17.5904 43.2704 16.8703 43.0426 16.2486C42.8149 15.6269 42.4794 15.1406 42.0362 14.7898C41.593 14.4389 41.0483 14.2635 40.402 14.2635C39.7618 14.2635 39.2202 14.4328 38.777 14.7713C38.34 15.1098 38.0045 15.59 37.7706 16.2116C37.5367 16.8333 37.4197 17.5658 37.4197 18.4091Z" class="fill-blue-600 dark:fill-white"/>
-            <path d="M1 29.5V16.5C1 9.87258 6.37258 4.5 13 4.5C19.6274 4.5 25 9.87258 25 16.5C25 23.1274 19.6274 28.5 13 28.5H12" class="stroke-blue-600 dark:stroke-white" stroke-width="2"/>
-            <path d="M5 29.5V16.66C5 12.1534 8.58172 8.5 13 8.5C17.4183 8.5 21 12.1534 21 16.66C21 21.1666 17.4183 24.82 13 24.82H12" class="stroke-blue-600 dark:stroke-white" stroke-width="2"/>
-            <circle cx="13" cy="16.5214" r="5" class="fill-blue-600 dark:fill-white"/>
-          </svg>
-        </a>
-      </div>
-
-      <div class="w-full flex items-center justify-end ms-auto md:justify-between gap-x-1 md:gap-x-3">
-        <div class="hidden md:block">
-          <div class="relative">
-            <div class="absolute inset-y-0 start-0 flex items-center pointer-events-none z-20 ps-3.5">
-              <svg class="shrink-0 size-4 text-gray-400 dark:text-white/60" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="11" cy="11" r="8"></circle>
-                <path d="m21 21-4.35-4.35"></path>
-              </svg>
-            </div>
-            <input type="text" class="py-2 ps-10 pe-16 block w-full bg-white border-gray-200 rounded-lg text-sm focus:outline-none focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-800 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder:text-neutral-400 dark:focus:ring-neutral-600" placeholder="Search components...">
-          </div>
-        </div>
-
-        <div class="flex flex-row items-center justify-end gap-1">
-          <!-- Theme Switch -->
-          <div class="hs-dropdown relative inline-flex">
-            <button type="button" class="hs-dropdown-toggle size-[38px] inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-full border border-transparent text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:text-white dark:hover:bg-neutral-700 dark:focus:bg-neutral-700" data-hs-theme-switch>
-              <svg class="hs-dark-mode-active:hidden block size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="12" cy="12" r="4"></circle>
-                <path d="M12 2v2"></path>
-                <path d="M12 20v2"></path>
-                <path d="m4.93 4.93 1.41 1.41"></path>
-                <path d="m17.66 17.66 1.41 1.41"></path>
-                <path d="M2 12h2"></path>
-                <path d="M20 12h2"></path>
-                <path d="m6.34 17.66-1.41-1.41"></path>
-                <path d="m19.07 4.93-1.41-1.41"></path>
-              </svg>
-              <svg class="hs-dark-mode-active:block hidden size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
-              </svg>
-            </button>
-          </div>
-
-          <!-- Notifications -->
-          <div class="hs-dropdown relative inline-flex">
-            <button type="button" class="hs-dropdown-toggle size-[38px] inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-full border border-transparent text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:text-white dark:hover:bg-neutral-700 dark:focus:bg-neutral-700">
-              <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"></path>
-                <path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"></path>
-              </svg>
-              <span class="absolute top-0 end-0 inline-flex items-center py-0.5 px-1.5 rounded-full text-xs font-medium transform -translate-y-1/2 translate-x-1/2 bg-red-500 text-white">3</span>
-            </button>
-
-            <div class="hs-dropdown-menu transition-[opacity,margin] duration hs-dropdown-open:opacity-100 opacity-0 hidden min-w-60 bg-white shadow-md rounded-lg mt-2 dark:bg-neutral-800 dark:border dark:border-neutral-700 dark:divide-neutral-700 after:h-4 after:absolute after:-bottom-4 after:start-0 after:w-full before:h-4 before:absolute before:-top-4 before:start-0 before:w-full">
-              <div class="py-2 first:pt-0 last:pb-0">
-                <a class="flex items-center gap-x-3 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 dark:text-neutral-400 dark:hover:bg-neutral-700 dark:hover:text-neutral-300 dark:focus:bg-neutral-700 dark:focus:text-neutral-300" href="#">
-                  <span class="inline-flex items-center justify-center size-8 rounded-full bg-blue-500 text-white">
-                    <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                      <path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"></path>
-                      <path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"></path>
-                    </svg>
-                  </span>
-                  <div class="grow">
-                    <span class="block font-semibold text-gray-800 dark:text-neutral-200">New message</span>
-                    <span class="block text-sm text-gray-500 dark:text-neutral-500">You have a new message from John</span>
-                  </div>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </nav>
-  </header>
+  <!-- Mobile Menu Button -->
+  <div class="lg:hidden fixed top-4 left-4 z-50">
+    <button type="button" class="hs-collapse-toggle p-2 inline-flex justify-center items-center gap-x-2 rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-800" data-hs-collapse="#sidebar-mobile">
+      <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="3" x2="21" y1="6" y2="6"/>
+        <line x1="3" x2="21" y1="12" y2="12"/>
+        <line x1="3" x2="21" y1="18" y2="18"/>
+      </svg>
+    </button>
+  </div>
 
   <!-- Sidebar -->
-  <div class="hs-overlay [--auto-close:lg] hs-overlay-open:translate-x-0 -translate-x-full transition-all duration-300 transform w-[260px] h-full hidden fixed inset-y-0 start-0 z-[60] bg-white border-e border-gray-200 lg:block lg:translate-x-0 lg:end-auto lg:bottom-0 dark:bg-neutral-800 dark:border-neutral-700">
-    <div class="relative flex flex-col h-full max-h-full">
-      <div class="px-6 pt-4">
-        <a class="flex-none rounded-xl text-xl inline-block font-semibold focus:outline-none focus:opacity-80" href="#" aria-label="Preline">
-          <svg class="w-28 h-auto" width="116" height="32" viewBox="0 0 116 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M33.5696 30.8182V11.3182H37.4474V13.7003H37.6229C37.7952 13.3187 38.0445 12.9309 38.3707 12.5369C38.7031 12.1368 39.134 11.8045 39.6634 11.5398C40.1989 11.2689 40.8636 11.1335 41.6577 11.1335C42.6918 11.1335 43.6458 11.4044 44.5199 11.946C45.3939 12.4815 46.0926 13.291 46.6158 14.3743C47.139 15.4515 47.4006 16.8026 47.4006 18.4276C47.4006 20.0095 47.1451 21.3452 46.6342 22.4347C46.1295 23.518 45.4401 24.3397 44.5661 24.8999C43.6982 25.4538 42.7256 25.7308 41.6484 25.7308C40.8852 25.7308 40.2358 25.6046 39.7003 25.3523C39.1709 25.0999 38.737 24.7829 38.3984 24.4013C38.0599 24.0135 37.8014 23.6226 37.6229 23.2287H37.5028V30.8182H33.5696ZM37.4197 18.4091C37.4197 19.2524 37.5367 19.9879 37.7706 20.6158C38.0045 21.2436 38.343 21.733 38.7862 22.0838C39.2294 22.4285 39.768 22.6009 40.402 22.6009C41.0421 22.6009 41.5838 22.4254 42.027 22.0746C42.4702 21.7176 42.8056 21.2251 43.0334 20.5973C43.2673 19.9633 43.3842 19.2339 43.3842 18.4091C43.3842 17.5904 43.2704 16.8703 43.0426 16.2486C42.8149 15.6269 42.4794 15.1406 42.0362 14.7898C41.593 14.4389 41.0483 14.2635 40.402 14.2635C39.7618 14.2635 39.2202 14.4328 38.777 14.7713C38.34 15.1098 38.0045 15.59 37.7706 16.2116C37.5367 16.8333 37.4197 17.5658 37.4197 18.4091Z" class="fill-blue-600 dark:fill-white"/>
-            <path d="M1 29.5V16.5C1 9.87258 6.37258 4.5 13 4.5C19.6274 4.5 25 9.87258 25 16.5C25 23.1274 19.6274 28.5 13 28.5H12" class="stroke-blue-600 dark:stroke-white" stroke-width="2"/>
-            <path d="M5 29.5V16.66C5 12.1534 8.58172 8.5 13 8.5C17.4183 8.5 21 12.1534 21 16.66C21 21.1666 17.4183 24.82 13 24.82H12" class="stroke-blue-600 dark:stroke-white" stroke-width="2"/>
-            <circle cx="13" cy="16.5214" r="5" class="fill-blue-600 dark:fill-white"/>
-          </svg>
-        </a>
-      </div>
-
-      <!-- Navigation -->
-      <div class="h-full overflow-y-auto [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-track]:bg-gray-100 [&::-webkit-scrollbar-thumb]:bg-gray-300 dark:[&::-webkit-scrollbar-track]:bg-neutral-700 dark:[&::-webkit-scrollbar-thumb]:bg-neutral-500">
-        <nav class="hs-accordion-group p-3 w-full flex flex-col flex-wrap" data-hs-accordion-always-open>
-          <ul class="flex flex-col space-y-1">
-            <li>
-              <a class="flex items-center gap-x-3.5 py-2 px-2.5 bg-gray-100 text-sm text-gray-800 rounded-lg hover:bg-gray-100 focus:outline-none focus:bg-gray-100 dark:bg-neutral-700 dark:text-white" href="#dashboard" onclick="showSection('dashboard')">
-                <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
-                  <polyline points="9,22 9,12 15,12 15,22"></polyline>
-                </svg>
-                Dashboard
-              </a>
-            </li>
-
-            <li class="hs-accordion" id="components-accordion">
-              <button type="button" class="hs-accordion-toggle w-full text-start flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-gray-800 rounded-lg hover:bg-gray-100 focus:outline-none focus:bg-gray-100 dark:bg-neutral-800 dark:hover:bg-neutral-700 dark:text-neutral-200" aria-expanded="true" aria-controls="components-accordion-child">
-                <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <rect width="7" height="7" x="14" y="3" rx="1"></rect>
-                  <rect width="7" height="7" x="3" y="3" rx="1"></rect>
-                  <rect width="7" height="7" x="14" y="14" rx="1"></rect>
-                  <rect width="7" height="7" x="3" y="14" rx="1"></rect>
-                </svg>
-                Components
-
-                <svg class="hs-accordion-active:rotate-180 ms-auto shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="m6 9 6 6 6-6"></path>
-                </svg>
-              </button>
-
-              <div id="components-accordion-child" class="hs-accordion-content w-full overflow-hidden transition-[height] duration-300">
-                <ul class="ps-8 pt-1 space-y-1">
-                  <li><a class="flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-gray-800 rounded-lg hover:bg-gray-100 focus:outline-none focus:bg-gray-100 dark:text-neutral-200 dark:hover:bg-neutral-700" href="#" onclick="showSection('buttons')">Buttons</a></li>
-                  <li><a class="flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-gray-800 rounded-lg hover:bg-gray-100 focus:outline-none focus:bg-gray-100 dark:text-neutral-200 dark:hover:bg-neutral-700" href="#" onclick="showSection('forms')">Forms</a></li>
-                  <li><a class="flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-gray-800 rounded-lg hover:bg-gray-100 focus:outline-none focus:bg-gray-100 dark:text-neutral-200 dark:hover:bg-neutral-700" href="#" onclick="showSection('navigation')">Navigation</a></li>
-                  <li><a class="flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-gray-800 rounded-lg hover:bg-gray-100 focus:outline-none focus:bg-gray-100 dark:text-neutral-200 dark:hover:bg-neutral-700" href="#" onclick="showSection('overlays')">Overlays</a></li>
-                  <li><a class="flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-gray-800 rounded-lg hover:bg-gray-100 focus:outline-none focus:bg-gray-100 dark:text-neutral-200 dark:hover:bg-neutral-700" href="#" onclick="showSection('data')">Data Display</a></li>
-                </ul>
-              </div>
-            </li>
-
-            <li>
-              <a class="flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-gray-800 rounded-lg hover:bg-gray-100 focus:outline-none focus:bg-gray-100 dark:text-neutral-200 dark:hover:bg-neutral-700" href="#" onclick="showSection('settings')">
-                <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <circle cx="12" cy="12" r="3"></circle>
-                  <path d="M12 1v6m0 6v6"></path>
-                  <path d="m21 12-6 0m-6 0-6 0"></path>
-                </svg>
-                Settings
-              </a>
-            </li>
-          </ul>
-        </nav>
-      </div>
+  <div id="sidebar-mobile" class="hs-collapse hidden lg:block lg:translate-x-0 -translate-x-full transition-all duration-300 transform fixed top-0 start-0 bottom-0 z-[60] w-64 bg-white border-e border-gray-200 pt-7 pb-10 overflow-y-auto dark:bg-neutral-800 dark:border-neutral-700 sidebar-mobile">
+    <div class="px-6">
+      <a class="flex-none text-xl font-semibold dark:text-white" href="#" aria-label="Preline">
+        <svg class="w-8 h-auto" width="116" height="32" viewBox="0 0 116 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M33.5696 30.8182V11.3182H37.4474V13.7003H37.6229C37.7952 13.3187 38.0445 12.9309 38.3707 12.5369C38.7031 12.1368 39.134 11.8045 39.6634 11.5398C40.1989 11.2689 40.8636 11.1335 41.6577 11.1335C42.6918 11.1335 43.6458 11.4044 44.5199 11.946C45.3939 12.4815 46.0926 13.291 46.6158 14.3743C47.139 15.4515 47.4006 16.8026 47.4006 18.4276C47.4006 20.0095 47.1451 21.3452 46.6342 22.4347C46.1295 23.518 45.4401 24.3397 44.5661 24.8999C43.6982 25.4538 42.7256 25.7308 41.6484 25.7308C40.8852 25.7308 40.2358 25.6046 39.7003 25.3523C39.1709 25.0999 38.737 24.7829 38.3984 24.4013C38.0599 24.0135 37.8014 23.6226 37.6229 23.2287H37.5028V30.8182H33.5696ZM37.4197 18.4091C37.4197 19.2524 37.5367 19.9879 37.7706 20.6158C38.0045 21.2436 38.343 21.733 38.7862 22.0838C39.2294 22.4285 39.768 22.6009 40.402 22.6009C41.0421 22.6009 41.5838 22.4254 42.027 22.0746C42.4702 21.7176 42.8056 21.2251 43.0334 20.5973C43.2673 19.9633 43.3842 19.2339 43.3842 18.4091C43.3842 17.5904 43.2704 16.8703 43.0426 16.2486C42.8149 15.6269 42.4794 15.1406 42.0362 14.7898C41.593 14.4389 41.0483 14.2635 40.402 14.2635C39.7618 14.2635 39.2202 14.4328 38.777 14.7713C38.34 15.1098 38.0045 15.59 37.7706 16.2116C37.5367 16.8333 37.4197 17.5658 37.4197 18.4091ZM49.2427 25.5V11.3182H53.0559V13.7926H53.2037C53.4622 12.9124 53.8961 12.2476 54.5055 11.7983C55.1149 11.3428 55.8166 11.1151 56.6106 11.1151C56.8076 11.1151 57.02 11.1274 57.2477 11.152C57.4754 11.1766 57.6755 11.2105 57.8478 11.2536V14.7436C57.6632 14.6882 57.4077 14.639 57.0815 14.5959C56.7553 14.5528 56.4567 14.5312 56.1859 14.5312C55.6073 14.5312 55.0903 14.6574 54.6348 14.9098C54.1854 15.156 53.8284 15.5007 53.5638 15.9439C53.3052 16.3871 53.176 16.898 53.176 17.4766V25.5H49.2427ZM64.9043 25.777C63.4455 25.777 62.1898 25.4815 61.1373 24.8906C60.0909 24.2936 59.2845 23.4503 58.7182 22.3608C58.1519 21.2652 57.8688 19.9695 57.8688 18.4737C57.8688 17.0149 58.1519 15.7346 58.7182 14.6328C59.2845 13.531 60.0816 12.6723 61.1096 12.0568C62.1437 11.4413 63.3563 11.1335 64.7474 11.1335C65.683 11.1335 66.5539 11.2843 67.3603 11.5859C68.1728 11.8814 68.8806 12.3277 69.4839 12.9247C70.0932 13.5218 70.5672 14.2727 70.9057 15.1776C71.2443 16.0762 71.4135 17.1288 71.4135 18.3352V19.4155H59.4384V16.978H67.7111C67.7111 16.4117 67.588 15.91 67.3418 15.473C67.0956 15.036 66.754 14.6944 66.317 14.4482C65.8861 14.1958 65.3844 14.0696 64.812 14.0696C64.2149 14.0696 63.6856 14.2081 63.2239 14.4851C62.7684 14.7559 62.4114 15.1222 62.1529 15.5838C61.8944 16.0393 61.762 16.5471 61.7559 17.1072V19.4247C61.7559 20.1264 61.8851 20.7327 62.1437 21.2436C62.4083 21.7545 62.7807 22.1484 63.2608 22.4254C63.741 22.7024 64.3103 22.8409 64.9689 22.8409C65.406 22.8409 65.8061 22.7794 66.1692 22.6562C66.5324 22.5331 66.8432 22.3485 67.1018 22.1023C67.3603 21.8561 67.5572 21.5545 67.6927 21.1974L71.3304 21.4375C71.1458 22.3116 70.7672 23.0748 70.1948 23.7273C69.6285 24.3736 68.896 24.8783 67.9974 25.2415C67.1048 25.5985 66.0738 25.777 64.9043 25.777ZM77.1335 6.59091V25.5H73.2003V6.59091H77.1335ZM79.5043 25.5V11.3182H83.4375V25.5H79.5043ZM81.4801 9.49006C80.8954 9.49006 80.3937 9.29616 79.9752 8.90838C79.5628 8.51444 79.3566 8.04356 79.3566 7.49574C79.3566 6.95407 79.5628 6.48935 79.9752 6.10156C80.3937 5.70762 80.8954 5.51065 81.4801 5.51065C82.0649 5.51065 82.5635 5.70762 82.9759 6.10156C83.3944 6.48935 83.6037 6.95407 83.6037 7.49574C83.6037 8.04356 83.3944 8.51444 82.9759 8.90838C82.5635 9.29616 82.0649 9.49006 81.4801 9.49006ZM89.7415 17.3011V25.5H85.8083V11.3182H89.5569V13.8203H89.723C90.037 12.9955 90.5632 12.343 91.3019 11.8629C92.0405 11.3767 92.9361 11.1335 93.9887 11.1335C94.9735 11.1335 95.8322 11.349 96.5647 11.7798C97.2971 12.2107 97.8665 12.8262 98.2728 13.6264C98.679 14.4205 98.8821 15.3684 98.8821 16.4702V25.5H94.9489V17.1719C94.9551 16.304 94.7335 15.6269 94.2841 15.1406C93.8348 14.6482 93.2162 14.402 92.4283 14.402C91.8989 14.402 91.4311 14.5159 91.0249 14.7436C90.6248 14.9714 90.3109 15.3037 90.0831 15.7408C89.8615 16.1716 89.7477 16.6918 89.7415 17.3011ZM107.665 25.777C106.206 25.777 104.951 25.4815 103.898 24.8906C102.852 24.2936 102.045 23.4503 101.479 22.3608C100.913 21.2652 100.63 19.9695 100.63 18.4737C100.63 17.0149 100.913 15.7346 101.479 14.6328C102.045 13.531 102.842 12.6723 103.87 12.0568C104.905 11.4413 106.117 11.1335 107.508 11.1335C108.444 11.1335 109.315 11.2843 110.121 11.5859C110.934 11.8814 111.641 12.3277 112.245 12.9247C112.854 13.5218 113.328 14.2727 113.667 15.1776C114.005 16.0762 114.174 17.1288 114.174 18.3352V19.4155H102.199V16.978H110.472C110.472 16.4117 110.349 15.91 110.103 15.473C109.856 15.036 109.515 14.6944 109.078 14.4482C108.647 14.1958 108.145 14.0696 107.573 14.0696C106.976 14.0696 106.446 14.2081 105.985 14.4851C105.529 14.7559 105.172 15.1222 104.914 15.5838C104.655 16.0393 104.523 16.5471 104.517 17.1072V19.4247C104.517 20.1264 104.646 20.7327 104.905 21.2436C105.169 21.7545 105.542 22.1484 106.022 22.4254C106.502 22.7024 107.071 22.8409 107.73 22.8409C108.167 22.8409 108.567 22.7794 108.93 22.6562C109.293 22.5331 109.604 22.3485 109.863 22.1023C110.121 21.8561 110.318 21.5545 110.454 21.1974L114.091 21.4375C113.907 22.3116 113.528 23.0748 112.956 23.7273C112.389 24.3736 111.657 24.8783 110.758 25.2415C109.866 25.5985 108.835 25.777 107.665 25.777Z" class="fill-blue-600 dark:fill-white" fill="currentColor"/>
+          <path d="M1 29.5V16.5C1 9.87258 6.37258 4.5 13 4.5C19.6274 4.5 25 9.87258 25 16.5C25 23.1274 19.6274 28.5 13 28.5H12" class="stroke-blue-600 dark:stroke-white" stroke="currentColor" stroke-width="2"/>
+          <path d="M5 29.5V16.66C5 12.1534 8.58172 8.5 13 8.5C17.4183 8.5 21 12.1534 21 16.66C21 21.1666 17.4183 24.82 13 24.82H12" class="stroke-blue-600 dark:stroke-white" stroke="currentColor" stroke-width="2"/>
+          <circle cx="13" cy="16.5214" r="5" class="fill-blue-600 dark:fill-white" fill="currentColor"/>
+        </svg>
+        <span class="ml-2">Preline UI</span>
+      </a>
     </div>
+
+    <nav class="hs-accordion-group p-6 w-full flex flex-col flex-wrap" data-hs-accordion-always-open>
+      <ul class="space-y-1.5">
+        <li>
+          <a class="flex items-center gap-x-3.5 py-2 px-2.5 bg-gray-100 text-sm text-gray-700 rounded-lg hover:bg-gray-100 dark:bg-neutral-700 dark:text-white" href="#" onclick="showSection('overview')">
+            <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+              <polyline points="9,22 9,12 15,12 15,22"/>
+            </svg>
+            Overview
+          </a>
+        </li>
+
+        <li class="hs-accordion" id="components-accordion">
+          <button type="button" class="hs-accordion-toggle w-full text-start flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-gray-700 rounded-lg hover:bg-gray-100 dark:hover:bg-neutral-700 dark:text-neutral-400 dark:hover:text-neutral-300">
+            <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect width="7" height="7" x="3" y="3" rx="1"/>
+              <rect width="7" height="7" x="14" y="3" rx="1"/>
+              <rect width="7" height="7" x="14" y="14" rx="1"/>
+              <rect width="7" height="7" x="3" y="14" rx="1"/>
+            </svg>
+            Components
+
+            <svg class="hs-accordion-active:rotate-180 ms-auto shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="m6 9 6 6 6-6"/>
+            </svg>
+          </button>
+
+          <div id="components-accordion-child" class="hs-accordion-content w-full overflow-hidden transition-[height] duration-300 hidden">
+            <ul class="pt-2 ps-2">
+              <li><a class="flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-gray-700 rounded-lg hover:bg-gray-100 dark:hover:bg-neutral-700 dark:text-neutral-400 dark:hover:text-neutral-300" href="#" onclick="showSection('buttons')">Buttons</a></li>
+              <li><a class="flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-gray-700 rounded-lg hover:bg-gray-100 dark:hover:bg-neutral-700 dark:text-neutral-400 dark:hover:text-neutral-300" href="#" onclick="showSection('forms')">Forms</a></li>
+              <li><a class="flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-gray-700 rounded-lg hover:bg-gray-100 dark:hover:bg-neutral-700 dark:text-neutral-400 dark:hover:text-neutral-300" href="#" onclick="showSection('navigation')">Navigation</a></li>
+              <li><a class="flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-gray-700 rounded-lg hover:bg-gray-100 dark:hover:bg-neutral-700 dark:text-neutral-400 dark:hover:text-neutral-300" href="#" onclick="showSection('overlays')">Overlays</a></li>
+              <li><a class="flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-gray-700 rounded-lg hover:bg-gray-100 dark:hover:bg-neutral-700 dark:text-neutral-400 dark:hover:text-neutral-300" href="#" onclick="showSection('data')">Data Display</a></li>
+            </ul>
+          </div>
+        </li>
+
+        <li>
+          <a class="flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-gray-700 rounded-lg hover:bg-gray-100 dark:hover:bg-neutral-700 dark:text-neutral-400 dark:hover:text-neutral-300" href="#" onclick="showSection('playground')">
+            <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/>
+              <circle cx="12" cy="13" r="3"/>
+            </svg>
+            Playground
+          </a>
+        </li>
+      </ul>
+    </nav>
   </div>
 
   <!-- Content -->
-  <div class="w-full lg:ps-[260px]">
+  <div class="w-full lg:ps-64">
+    <!-- Header -->
+    <div class="sticky top-0 inset-x-0 z-20 bg-white border-y px-4 sm:px-6 lg:px-8 lg:hidden dark:bg-neutral-800 dark:border-neutral-700">
+      <div class="flex items-center py-2">
+        <button type="button" class="size-8 flex justify-center items-center gap-x-2 border border-gray-200 text-gray-800 hover:text-gray-500 rounded-lg focus:outline-none focus:text-gray-500 disabled:opacity-50 disabled:pointer-events-none dark:border-neutral-700 dark:text-neutral-200 dark:hover:text-neutral-500 dark:focus:text-neutral-500" data-hs-overlay="#hs-application-sidebar" aria-controls="hs-application-sidebar" aria-label="Toggle navigation">
+          <span class="sr-only">Toggle Navigation</span>
+          <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect width="18" height="18" x="3" y="3" rx="2"/>
+            <path d="M9 3v18"/>
+          </svg>
+        </button>
+        <ol class="ms-3 flex items-center whitespace-nowrap">
+          <li class="flex items-center text-sm text-gray-800 dark:text-neutral-400">
+            Preline UI Showcase
+          </li>
+        </ol>
+      </div>
+    </div>
+
+    <!-- Main Content -->
     <div class="p-4 sm:p-6 space-y-4 sm:space-y-6">
-      
-      <!-- Dashboard Section -->
-      <div id="dashboard-section" class="section">
-        <!-- Stats Cards -->
+      <!-- Header with Theme Switch -->
+      <div class="flex justify-between items-center">
+        <div>
+          <h1 class="text-2xl font-semibold text-gray-800 dark:text-neutral-200">Component Showcase</h1>
+          <p class="text-sm text-gray-600 dark:text-neutral-400">Explore all Preline UI components</p>
+        </div>
+        
+        <!-- Theme Switch -->
+        <div class="flex items-center">
+          <label for="hs-basic-usage" class="text-sm text-gray-500 me-3 dark:text-neutral-400">Dark</label>
+          <input type="checkbox" id="hs-basic-usage" class="relative w-[3.25rem] h-7 p-px bg-gray-100 border-transparent text-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:ring-blue-600 disabled:opacity-50 disabled:pointer-events-none checked:bg-none checked:text-blue-600 checked:border-blue-600 focus:checked:border-blue-600 dark:bg-neutral-800 dark:border-neutral-700 dark:checked:bg-blue-600 dark:checked:border-blue-600 dark:focus:ring-offset-gray-600 before:inline-block before:size-6 before:bg-white checked:before:bg-blue-200 before:translate-x-0 checked:before:translate-x-full before:rounded-full before:shadow before:transform before:ring-0 before:transition before:ease-in-out before:duration-200 dark:before:bg-neutral-400 dark:checked:before:bg-blue-200" data-hs-theme-switch>
+          <label for="hs-basic-usage" class="text-sm text-gray-500 ms-3 dark:text-neutral-400">Light</label>
+        </div>
+      </div>
+
+      <!-- Overview Section -->
+      <div id="overview-section" class="section">
+        <!-- Stats Grid -->
         <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-8">
-          <div class="flex flex-col bg-white border shadow-sm rounded-xl dark:bg-neutral-800 dark:border-neutral-700">
+          <div class="flex flex-col bg-white border shadow-sm rounded-xl dark:bg-neutral-800 dark:border-neutral-700 component-card">
             <div class="p-4 md:p-5">
               <div class="flex items-center gap-x-2">
-                <p class="text-xs uppercase tracking-wide text-gray-500 dark:text-neutral-500">Total Users</p>
+                <p class="text-xs uppercase tracking-wide text-gray-500 dark:text-neutral-500">Total Components</p>
               </div>
               <div class="mt-1 flex items-center gap-x-2">
-                <h3 class="text-xl sm:text-2xl font-medium text-gray-800 dark:text-neutral-200">72,540</h3>
+                <h3 class="text-xl sm:text-2xl font-medium text-gray-800 dark:text-neutral-200">25+</h3>
                 <span class="flex items-center gap-x-1 text-green-600">
                   <svg class="inline-block size-4 self-center" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline>
-                    <polyline points="16 7 22 7 22 13"></polyline>
+                    <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/>
+                    <polyline points="16 7 22 7 22 13"/>
                   </svg>
-                  <span class="inline-block text-sm">1.7%</span>
+                  <span class="inline-block text-sm">12.5%</span>
                 </span>
               </div>
             </div>
           </div>
 
-          <div class="flex flex-col bg-white border shadow-sm rounded-xl dark:bg-neutral-800 dark:border-neutral-700">
+          <div class="flex flex-col bg-white border shadow-sm rounded-xl dark:bg-neutral-800 dark:border-neutral-700 component-card">
             <div class="p-4 md:p-5">
               <div class="flex items-center gap-x-2">
-                <p class="text-xs uppercase tracking-wide text-gray-500 dark:text-neutral-500">Sessions</p>
+                <p class="text-xs uppercase tracking-wide text-gray-500 dark:text-neutral-500">Interactive Elements</p>
               </div>
               <div class="mt-1 flex items-center gap-x-2">
-                <h3 class="text-xl sm:text-2xl font-medium text-gray-800 dark:text-neutral-200">29.4%</h3>
-                <span class="flex items-center gap-x-1 text-red-600">
-                  <svg class="inline-block size-4 self-center" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <polyline points="22 17 13.5 8.5 8.5 13.5 2 7"></polyline>
-                    <polyline points="16 17 22 17 22 11"></polyline>
-                  </svg>
-                  <span class="inline-block text-sm">1.2%</span>
-                </span>
-              </div>
-            </div>
-          </div>
-
-          <div class="flex flex-col bg-white border shadow-sm rounded-xl dark:bg-neutral-800 dark:border-neutral-700">
-            <div class="p-4 md:p-5">
-              <div class="flex items-center gap-x-2">
-                <p class="text-xs uppercase tracking-wide text-gray-500 dark:text-neutral-500">Avg. Click Rate</p>
-              </div>
-              <div class="mt-1 flex items-center gap-x-2">
-                <h3 class="text-xl sm:text-2xl font-medium text-gray-800 dark:text-neutral-200">56.8%</h3>
+                <h3 class="text-xl sm:text-2xl font-medium text-gray-800 dark:text-neutral-200">150+</h3>
                 <span class="flex items-center gap-x-1 text-green-600">
                   <svg class="inline-block size-4 self-center" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline>
-                    <polyline points="16 7 22 7 22 13"></polyline>
+                    <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/>
+                    <polyline points="16 7 22 7 22 13"/>
                   </svg>
-                  <span class="inline-block text-sm">5.6%</span>
+                  <span class="inline-block text-sm">5.4%</span>
                 </span>
               </div>
             </div>
           </div>
 
-          <div class="flex flex-col bg-white border shadow-sm rounded-xl dark:bg-neutral-800 dark:border-neutral-700">
+          <div class="flex flex-col bg-white border shadow-sm rounded-xl dark:bg-neutral-800 dark:border-neutral-700 component-card">
             <div class="p-4 md:p-5">
               <div class="flex items-center gap-x-2">
-                <p class="text-xs uppercase tracking-wide text-gray-500 dark:text-neutral-500">Page Views</p>
+                <p class="text-xs uppercase tracking-wide text-gray-500 dark:text-neutral-500">Accessibility</p>
               </div>
               <div class="mt-1 flex items-center gap-x-2">
-                <h3 class="text-xl sm:text-2xl font-medium text-gray-800 dark:text-neutral-200">92,913</h3>
+                <h3 class="text-xl sm:text-2xl font-medium text-gray-800 dark:text-neutral-200">WCAG 2.1</h3>
+                <span class="flex items-center gap-x-1 text-green-600">
+                  <svg class="inline-block size-4 self-center" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/>
+                    <path d="m9 12 2 2 4-4"/>
+                  </svg>
+                  <span class="inline-block text-sm">AA</span>
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex flex-col bg-white border shadow-sm rounded-xl dark:bg-neutral-800 dark:border-neutral-700 component-card">
+            <div class="p-4 md:p-5">
+              <div class="flex items-center gap-x-2">
+                <p class="text-xs uppercase tracking-wide text-gray-500 dark:text-neutral-500">Framework Support</p>
+              </div>
+              <div class="mt-1 flex items-center gap-x-2">
+                <h3 class="text-xl sm:text-2xl font-medium text-gray-800 dark:text-neutral-200">10+</h3>
+                <span class="flex items-center gap-x-1 text-blue-600">
+                  <svg class="inline-block size-4 self-center" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                  </svg>
+                  <span class="inline-block text-sm">React, Vue, Angular</span>
+                </span>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- Tabs Example -->
-        <div class="bg-white border border-gray-200 rounded-xl shadow-sm dark:bg-neutral-800 dark:border-neutral-700 mb-8">
-          <div class="border-b border-gray-200 dark:border-neutral-700">
-            <nav class="flex gap-x-1" aria-label="Tabs" role="tablist" data-hs-tabs-vertical="false">
-              <button type="button" class="hs-tab-active:bg-gray-100 hs-tab-active:hover:border-transparent w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 bg-transparent text-sm text-gray-500 hover:text-gray-700 hover:bg-gray-50 focus:outline-none focus:bg-gray-50 rounded-t-lg disabled:opacity-50 disabled:pointer-events-none dark:text-neutral-400 dark:hover:text-neutral-300 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700 active" id="tabs-with-underline-item-1" aria-selected="true" data-hs-tab="#tabs-with-underline-1" aria-controls="tabs-with-underline-1" role="tab">
-                Overview
-              </button>
-              <button type="button" class="hs-tab-active:bg-gray-100 hs-tab-active:hover:border-transparent w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 bg-transparent text-sm text-gray-500 hover:text-gray-700 hover:bg-gray-50 focus:outline-none focus:bg-gray-50 rounded-t-lg disabled:opacity-50 disabled:pointer-events-none dark:text-neutral-400 dark:hover:text-neutral-300 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700" id="tabs-with-underline-item-2" aria-selected="false" data-hs-tab="#tabs-with-underline-2" aria-controls="tabs-with-underline-2" role="tab">
-                Analytics
-              </button>
-              <button type="button" class="hs-tab-active:bg-gray-100 hs-tab-active:hover:border-transparent w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 bg-transparent text-sm text-gray-500 hover:text-gray-700 hover:bg-gray-50 focus:outline-none focus:bg-gray-50 rounded-t-lg disabled:opacity-50 disabled:pointer-events-none dark:text-neutral-400 dark:hover:text-neutral-300 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700" id="tabs-with-underline-item-3" aria-selected="false" data-hs-tab="#tabs-with-underline-3" aria-controls="tabs-with-underline-3" role="tab">
-                Reports
-              </button>
-            </nav>
-          </div>
-
-          <div class="mt-3">
-            <div id="tabs-with-underline-1" role="tabpanel" aria-labelledby="tabs-with-underline-item-1">
-              <div class="p-4 md:p-5">
-                <p class="text-gray-500 dark:text-neutral-400">This is the <em class="font-semibold text-gray-800 dark:text-neutral-200">first</em> item's tab body.</p>
-              </div>
-            </div>
-            <div id="tabs-with-underline-2" class="hidden" role="tabpanel" aria-labelledby="tabs-with-underline-item-2">
-              <div class="p-4 md:p-5">
-                <p class="text-gray-500 dark:text-neutral-400">This is the <em class="font-semibold text-gray-800 dark:text-neutral-200">second</em> item's tab body.</p>
-              </div>
-            </div>
-            <div id="tabs-with-underline-3" class="hidden" role="tabpanel" aria-labelledby="tabs-with-underline-item-3">
-              <div class="p-4 md:p-5">
-                <p class="text-gray-500 dark:text-neutral-400">This is the <em class="font-semibold text-gray-800 dark:text-neutral-200">third</em> item's tab body.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Carousel Example -->
-        <div class="bg-white border border-gray-200 rounded-xl shadow-sm dark:bg-neutral-800 dark:border-neutral-700 mb-8">
-          <div class="p-4 md:p-5">
-            <h3 class="text-lg font-semibold text-gray-800 dark:text-neutral-200 mb-4">Featured Content</h3>
-            
-            <div data-hs-carousel='{"loadingClasses": "opacity-0", "isAutoPlay": true}' class="relative">
-              <div class="hs-carousel relative overflow-hidden w-full min-h-72 bg-white rounded-lg">
-                <div class="hs-carousel-body absolute top-0 bottom-0 start-0 flex flex-nowrap transition-transform duration-700 opacity-0">
-                  <div class="hs-carousel-slide">
-                    <div class="flex justify-center h-full bg-gray-100 p-6 dark:bg-neutral-700">
-                      <span class="self-center text-4xl text-gray-800 transition duration-700 dark:text-neutral-200">First slide</span>
-                    </div>
+        <!-- Feature Highlights -->
+        <div class="grid lg:grid-cols-2 gap-6">
+          <div class="bg-white border shadow-sm rounded-xl dark:bg-neutral-800 dark:border-neutral-700 component-card">
+            <div class="p-6">
+              <h3 class="text-lg font-semibold text-gray-800 dark:text-neutral-200 mb-4">🚀 Getting Started</h3>
+              <p class="text-gray-600 dark:text-neutral-400 mb-4">Preline UI is built on top of Tailwind CSS, providing you with a comprehensive set of pre-built components.</p>
+              <div class="space-y-3">
+                <div class="flex items-center gap-3">
+                  <div class="flex-shrink-0 w-6 h-6 bg-blue-100 rounded-full flex items-center justify-center dark:bg-blue-900">
+                    <span class="text-xs font-semibold text-blue-600 dark:text-blue-400">1</span>
                   </div>
-                  <div class="hs-carousel-slide">
-                    <div class="flex justify-center h-full bg-gray-200 p-6 dark:bg-neutral-600">
-                      <span class="self-center text-4xl text-gray-800 transition duration-700 dark:text-neutral-200">Second slide</span>
-                    </div>
+                  <span class="text-sm text-gray-700 dark:text-neutral-300">Install via npm or CDN</span>
+                </div>
+                <div class="flex items-center gap-3">
+                  <div class="flex-shrink-0 w-6 h-6 bg-blue-100 rounded-full flex items-center justify-center dark:bg-blue-900">
+                    <span class="text-xs font-semibold text-blue-600 dark:text-blue-400">2</span>
                   </div>
-                  <div class="hs-carousel-slide">
-                    <div class="flex justify-center h-full bg-gray-300 p-6 dark:bg-neutral-500">
-                      <span class="self-center text-4xl text-gray-800 transition duration-700 dark:text-neutral-200">Third slide</span>
-                    </div>
+                  <span class="text-sm text-gray-700 dark:text-neutral-300">Import components you need</span>
+                </div>
+                <div class="flex items-center gap-3">
+                  <div class="flex-shrink-0 w-6 h-6 bg-blue-100 rounded-full flex items-center justify-center dark:bg-blue-900">
+                    <span class="text-xs font-semibold text-blue-600 dark:text-blue-400">3</span>
                   </div>
+                  <span class="text-sm text-gray-700 dark:text-neutral-300">Start building amazing UIs</span>
                 </div>
               </div>
+            </div>
+          </div>
 
-              <button type="button" class="hs-carousel-prev hs-carousel:disabled:opacity-50 disabled:pointer-events-none absolute inset-y-0 start-0 inline-flex justify-center items-center w-[46px] h-full text-gray-800 hover:bg-gray-800/10 focus:outline-none focus:bg-gray-800/10 rounded-s-lg dark:text-white dark:hover:bg-white/10 dark:focus:bg-white/10">
-                <span class="text-2xl" aria-hidden="true">
-                  <svg class="shrink-0 size-5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="m15 18-6-6 6-6"></path>
+          <div class="bg-white border shadow-sm rounded-xl dark:bg-neutral-800 dark:border-neutral-700 component-card">
+            <div class="p-6">
+              <h3 class="text-lg font-semibold text-gray-800 dark:text-neutral-200 mb-4">✨ Key Features</h3>
+              <div class="space-y-3">
+                <div class="flex items-start gap-3">
+                  <svg class="shrink-0 size-5 text-green-500 mt-0.5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/>
+                    <path d="m9 12 2 2 4-4"/>
                   </svg>
-                </span>
-                <span class="sr-only">Previous</span>
-              </button>
-              <button type="button" class="hs-carousel-next hs-carousel:disabled:opacity-50 disabled:pointer-events-none absolute inset-y-0 end-0 inline-flex justify-center items-center w-[46px] h-full text-gray-800 hover:bg-gray-800/10 focus:outline-none focus:bg-gray-800/10 rounded-e-lg dark:text-white dark:hover:bg-white/10 dark:focus:bg-white/10">
-                <span class="sr-only">Next</span>
-                <span class="text-2xl" aria-hidden="true">
-                  <svg class="shrink-0 size-5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="m9 18 6-6-6-6"></path>
+                  <div>
+                    <h4 class="text-sm font-medium text-gray-800 dark:text-neutral-200">Accessibility First</h4>
+                    <p class="text-xs text-gray-600 dark:text-neutral-400">WCAG 2.1 AA compliant components</p>
+                  </div>
+                </div>
+                <div class="flex items-start gap-3">
+                  <svg class="shrink-0 size-5 text-blue-500 mt-0.5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
                   </svg>
-                </span>
-              </button>
-
-              <div class="hs-carousel-pagination flex justify-center absolute bottom-3 start-0 end-0 space-x-2">
-                <span class="hs-carousel-active:bg-blue-700 hs-carousel-active:border-blue-700 size-3 border border-gray-400 rounded-full cursor-pointer dark:border-neutral-600 dark:hs-carousel-active:bg-blue-500 dark:hs-carousel-active:border-blue-500"></span>
-                <span class="hs-carousel-active:bg-blue-700 hs-carousel-active:border-blue-700 size-3 border border-gray-400 rounded-full cursor-pointer dark:border-neutral-600 dark:hs-carousel-active:bg-blue-500 dark:hs-carousel-active:border-blue-500"></span>
-                <span class="hs-carousel-active:bg-blue-700 hs-carousel-active:border-blue-700 size-3 border border-gray-400 rounded-full cursor-pointer dark:border-neutral-600 dark:hs-carousel-active:bg-blue-500 dark:hs-carousel-active:border-blue-500"></span>
+                  <div>
+                    <h4 class="text-sm font-medium text-gray-800 dark:text-neutral-200">Framework Agnostic</h4>
+                    <p class="text-xs text-gray-600 dark:text-neutral-400">Works with React, Vue, Angular, and more</p>
+                  </div>
+                </div>
+                <div class="flex items-start gap-3">
+                  <svg class="shrink-0 size-5 text-purple-500 mt-0.5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                    <path d="m2 17 10 5 10-5"/>
+                    <path d="m2 12 10 5 10-5"/>
+                  </svg>
+                  <div>
+                    <h4 class="text-sm font-medium text-gray-800 dark:text-neutral-200">Modular Design</h4>
+                    <p class="text-xs text-gray-600 dark:text-neutral-400">Import only what you need</p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -330,34 +302,64 @@
 
       <!-- Buttons Section -->
       <div id="buttons-section" class="section hidden">
-        <div class="bg-white border border-gray-200 rounded-xl shadow-sm dark:bg-neutral-800 dark:border-neutral-700">
-          <div class="p-4 md:p-5">
-            <h3 class="text-lg font-semibold text-gray-800 dark:text-neutral-200 mb-4">Button Examples</h3>
+        <div class="bg-white border shadow-sm rounded-xl dark:bg-neutral-800 dark:border-neutral-700">
+          <div class="p-6">
+            <h2 class="text-xl font-semibold text-gray-800 dark:text-neutral-200 mb-6">Buttons & Dropdowns</h2>
             
-            <div class="space-y-4">
-              <div class="flex flex-wrap gap-2">
-                <button type="button" class="py-3 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 focus:outline-none focus:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none">
-                  Primary
-                </button>
-                <button type="button" class="py-3 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-800 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-700 dark:focus:bg-neutral-700">
-                  Secondary
-                </button>
-                <button type="button" class="py-3 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent text-blue-600 hover:bg-blue-100 hover:text-blue-800 focus:outline-none focus:bg-blue-100 focus:text-blue-800 disabled:opacity-50 disabled:pointer-events-none dark:text-blue-500 dark:hover:bg-blue-800/30 dark:hover:text-blue-400 dark:focus:bg-blue-800/30 dark:focus:text-blue-400">
-                  Ghost
-                </button>
+            <div class="space-y-8">
+              <!-- Basic Buttons -->
+              <div>
+                <h3 class="text-lg font-medium text-gray-800 dark:text-neutral-200 mb-4">Basic Buttons</h3>
+                <div class="flex flex-wrap gap-3">
+                  <button type="button" class="py-3 px-4 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none">
+                    Primary
+                  </button>
+                  <button type="button" class="py-3 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-800">
+                    Secondary
+                  </button>
+                  <button type="button" class="py-3 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent text-blue-600 hover:bg-blue-100 hover:text-blue-800 disabled:opacity-50 disabled:pointer-events-none dark:text-blue-500 dark:hover:bg-blue-800/30 dark:hover:text-blue-400">
+                    Ghost
+                  </button>
+                  <button type="button" class="py-3 px-4 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-red-600 text-white hover:bg-red-700 disabled:opacity-50 disabled:pointer-events-none">
+                    Danger
+                  </button>
+                </div>
               </div>
 
-              <!-- Dropdown Example -->
-              <div class="hs-dropdown relative inline-flex">
-                <button id="hs-dropdown-default" type="button" class="hs-dropdown-toggle py-3 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-800 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-700 dark:focus:bg-neutral-700" aria-haspopup="menu" aria-expanded="false" aria-label="Dropdown">
-                  Actions
-                  <svg class="hs-dropdown-open:rotate-180 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="m6 9 6 6 6-6"></path>
-                  </svg>
-                </button>
+              <!-- Button with Icons -->
+              <div>
+                <h3 class="text-lg font-medium text-gray-800 dark:text-neutral-200 mb-4">Buttons with Icons</h3>
+                <div class="flex flex-wrap gap-3">
+                  <button type="button" class="py-3 px-4 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none">
+                    <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M5 12h14"/>
+                      <path d="m12 5 7 7-7 7"/>
+                    </svg>
+                    Get Started
+                  </button>
+                  <button type="button" class="py-3 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-800">
+                    <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                      <polyline points="7,10 12,15 17,10"/>
+                      <line x1="12" x2="12" y1="15" y2="3"/>
+                    </svg>
+                    Download
+                  </button>
+                </div>
+              </div>
 
-                <div class="hs-dropdown-menu transition-[opacity,margin] duration hs-dropdown-open:opacity-100 opacity-0 hidden min-w-60 bg-white shadow-md rounded-lg mt-2 dark:bg-neutral-800 dark:border dark:border-neutral-700 dark:divide-neutral-700 after:h-4 after:absolute after:-bottom-4 after:start-0 after:w-full before:h-4 before:absolute before:-top-4 before:start-0 before:w-full" role="menu" aria-orientation="vertical" aria-labelledby="hs-dropdown-default">
-                  <div class="p-1 space-y-0.5">
+              <!-- Dropdown -->
+              <div>
+                <h3 class="text-lg font-medium text-gray-800 dark:text-neutral-200 mb-4">Dropdown Menu</h3>
+                <div class="hs-dropdown relative inline-flex">
+                  <button id="hs-dropdown-default" type="button" class="hs-dropdown-toggle py-3 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-800" aria-haspopup="menu" aria-expanded="false" aria-label="Dropdown">
+                    Actions
+                    <svg class="hs-dropdown-open:rotate-180 shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="m6 9 6 6 6-6"/>
+                    </svg>
+                  </button>
+
+                  <div class="hs-dropdown-menu transition-[opacity,margin] duration hs-dropdown-open:opacity-100 opacity-0 hidden min-w-60 bg-white shadow-md rounded-lg p-2 mt-2 dark:bg-neutral-800 dark:border dark:border-neutral-700 dark:divide-neutral-700" role="menu" aria-orientation="vertical" aria-labelledby="hs-dropdown-default">
                     <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 dark:text-neutral-400 dark:hover:bg-neutral-700 dark:hover:text-neutral-300 dark:focus:bg-neutral-700" href="#">
                       Newsletter
                     </a>
@@ -380,29 +382,32 @@
 
       <!-- Forms Section -->
       <div id="forms-section" class="section hidden">
-        <div class="bg-white border border-gray-200 rounded-xl shadow-sm dark:bg-neutral-800 dark:border-neutral-700">
-          <div class="p-4 md:p-5">
-            <h3 class="text-lg font-semibold text-gray-800 dark:text-neutral-200 mb-4">Form Components</h3>
+        <div class="bg-white border shadow-sm rounded-xl dark:bg-neutral-800 dark:border-neutral-700">
+          <div class="p-6">
+            <h2 class="text-xl font-semibold text-gray-800 dark:text-neutral-200 mb-6">Form Components</h2>
             
-            <div class="space-y-6">
+            <div class="grid lg:grid-cols-2 gap-8">
               <!-- Input Number -->
-              <div data-hs-input-number='{"min": 1, "max": 10}'>
-                <label for="input-number" class="block text-sm font-medium mb-2 dark:text-white">Quantity</label>
-                <div class="py-2 px-3 bg-white border border-gray-200 rounded-lg dark:bg-neutral-900 dark:border-neutral-700" data-hs-input-number>
+              <div>
+                <h3 class="text-lg font-medium text-gray-800 dark:text-neutral-200 mb-4">Input Number</h3>
+                <div class="py-2 px-3 bg-white border border-gray-200 rounded-lg dark:bg-neutral-900 dark:border-neutral-700" data-hs-input-number='{"min": 1, "max": 100}'>
                   <div class="w-full flex justify-between items-center gap-x-5">
                     <div class="grow">
-                      <input class="w-full p-0 bg-transparent border-0 text-gray-800 focus:ring-0 dark:text-white" type="text" aria-roledescription="Number field" value="1" data-hs-input-number-input>
+                      <span class="block text-xs text-gray-500 dark:text-neutral-400">
+                        Select quantity
+                      </span>
+                      <input class="w-full p-0 bg-transparent border-0 text-gray-800 focus:ring-0 dark:text-white" type="text" value="10" data-hs-input-number-input>
                     </div>
                     <div class="flex justify-end items-center gap-x-1.5">
-                      <button type="button" class="size-6 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-md border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-800 dark:focus:bg-neutral-800" tabindex="-1" aria-label="Decrease" data-hs-input-number-decrement>
+                      <button type="button" class="size-6 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-md border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-800" data-hs-input-number-decrement>
                         <svg class="shrink-0 size-3.5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                          <path d="M5 12h14"></path>
+                          <path d="M5 12h14"/>
                         </svg>
                       </button>
-                      <button type="button" class="size-6 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-md border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-800 dark:focus:bg-neutral-800" tabindex="-1" aria-label="Increase" data-hs-input-number-increment>
+                      <button type="button" class="size-6 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-md border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-800" data-hs-input-number-increment>
                         <svg class="shrink-0 size-3.5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                          <path d="M5 12h14"></path>
-                          <path d="M12 5v14"></path>
+                          <path d="M5 12h14"/>
+                          <path d="M12 5v14"/>
                         </svg>
                       </button>
                     </div>
@@ -410,110 +415,179 @@
                 </div>
               </div>
 
-              <!-- Pin Input -->
-              <div data-hs-pin-input>
-                <label class="block text-sm font-medium mb-2 dark:text-white">PIN Code</label>
-                <div class="flex space-x-3">
-                  <input type="text" class="block w-[38px] text-center border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600" data-hs-pin-input-item>
-                  <input type="text" class="block w-[38px] text-center border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600" data-hs-pin-input-item>
-                  <input type="text" class="block w-[38px] text-center border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600" data-hs-pin-input-item>
-                  <input type="text" class="block w-[38px] text-center border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600" data-hs-pin-input-item>
+              <!-- PIN Input -->
+              <div>
+                <h3 class="text-lg font-medium text-gray-800 dark:text-neutral-200 mb-4">PIN Input</h3>
+                <div class="max-w-sm" data-hs-pin-input='{"availableCharsRE": "^[0-9]+$"}'>
+                  <div class="flex space-x-3">
+                    <input type="text" class="block w-[38px] text-center border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600" data-hs-pin-input-item>
+                    <input type="text" class="block w-[38px] text-center border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600" data-hs-pin-input-item>
+                    <input type="text" class="block w-[38px] text-center border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600" data-hs-pin-input-item>
+                    <input type="text" class="block w-[38px] text-center border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600" data-hs-pin-input-item>
+                  </div>
                 </div>
               </div>
 
-              <!-- Toggle Password -->
-              <div class="relative">
-                <label for="hs-toggle-password" class="block text-sm font-medium mb-2 dark:text-white">Password</label>
-                <input id="hs-toggle-password" type="password" class="py-3 pe-10 ps-4 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600" placeholder="Enter password" value="12345678">
-                <button type="button" data-hs-toggle-password='{"target": "#hs-toggle-password"}' class="absolute inset-y-0 end-0 flex items-center z-20 px-3 cursor-pointer text-gray-400 rounded-e-md focus:outline-none focus:text-blue-600 dark:text-neutral-600 dark:focus:text-blue-500">
-                  <svg class="shrink-0 size-3.5" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path class="hs-password-active:hidden" d="M9.88 9.88a3 3 0 1 0 4.24 4.24"></path>
-                    <path class="hs-password-active:hidden" d="M10.73 5.08A10.43 10.43 0 0 1 12 5c7 0 10 7 10 7a13.16 13.16 0 0 1-1.67 2.68"></path>
-                    <path class="hs-password-active:hidden" d="M6.61 6.61A13.526 13.526 0 0 0 2 12s3 7 10 7a9.74 9.74 0 0 0 5.39-1.61"></path>
-                    <line class="hs-password-active:hidden" x1="2" x2="22" y1="2" y2="22"></line>
-                    <path class="hidden hs-password-active:block" d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"></path>
-                    <circle class="hidden hs-password-active:block" cx="12" cy="12" r="3"></circle>
-                  </svg>
-                </button>
+              <!-- Password Toggle -->
+              <div>
+                <h3 class="text-lg font-medium text-gray-800 dark:text-neutral-200 mb-4">Password Toggle</h3>
+                <div class="relative">
+                  <input id="hs-toggle-password" type="password" class="py-3 pe-10 ps-4 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600" placeholder="Enter password" value="12345678">
+                  <button type="button" data-hs-toggle-password='{"target": "#hs-toggle-password"}' class="absolute inset-y-0 end-0 flex items-center z-20 px-3 cursor-pointer text-gray-400 rounded-e-md focus:outline-none focus:text-blue-600 dark:text-neutral-600 dark:focus:text-blue-500">
+                    <svg class="shrink-0 size-3.5" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path class="hs-password-active:hidden" d="M9.88 9.88a3 3 0 1 0 4.24 4.24"/>
+                      <path class="hs-password-active:hidden" d="m10.73 5.08-1.46.46a11.32 11.32 0 0 0-7.27 7.27l-.46 1.46a1 1 0 0 0 0 .76l.46 1.46a11.32 11.32 0 0 0 7.27 7.27l1.46.46a1 1 0 0 0 .76 0l1.46-.46a11.32 11.32 0 0 0 7.27-7.27l.46-1.46a1 1 0 0 0 0-.76l-.46-1.46a11.32 11.32 0 0 0-7.27-7.27l-1.46-.46a1 1 0 0 0-.76 0Z"/>
+                      <path class="hs-password-active:hidden" d="m14.12 14.12-4.24-4.24"/>
+                      <path class="hs-password-active:block hidden" d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/>
+                      <circle class="hs-password-active:block hidden" cx="12" cy="12" r="3"/>
+                    </svg>
+                  </button>
+                </div>
               </div>
 
               <!-- Strong Password -->
               <div>
-                <label for="hs-strong-password" class="block text-sm font-medium mb-2 dark:text-white">Strong Password</label>
-                <div class="relative">
-                  <input id="hs-strong-password" type="password" class="py-3 ps-4 pe-10 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600" placeholder="Enter password">
-                  <div id="hs-strong-password-popover" class="hidden absolute z-10 w-full bg-white shadow-md rounded-lg p-4 dark:bg-neutral-800 dark:border dark:border-neutral-700 dark:divide-neutral-700">
-                    <div id="hs-strong-password-in-popover" data-hs-strong-password='{"target": "#hs-strong-password", "hints": "#hs-strong-password-popover", "stripClasses": "hs-strong-password:opacity-100 hs-strong-password-accepted:bg-teal-500 h-2 flex-auto rounded-full bg-blue-500 opacity-50 mx-1"}' class="flex mt-2 -mx-1">
+                <h3 class="text-lg font-medium text-gray-800 dark:text-neutral-200 mb-4">Strong Password Validator</h3>
+                <div>
+                  <div class="flex mb-2" data-hs-strong-password='{"target": "#hs-strong-password", "hints": "#hs-strong-password-hints", "stripClasses": "hs-strong-password:opacity-100 hs-strong-password-accepted:bg-teal-500 h-2 flex-auto rounded-full bg-blue-500 opacity-50 mx-1"}'>
+                  </div>
+                  <input id="hs-strong-password" type="password" class="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600" placeholder="Enter password">
+                  <div id="hs-strong-password-hints" class="hidden absolute z-10 w-full bg-white shadow-md rounded-lg p-4 dark:bg-neutral-800 dark:border dark:border-neutral-700">
+                    <div class="space-y-3">
+                      <div data-hs-strong-password-hints-rule-text="min-length" class="hs-strong-password-active:text-teal-500 flex items-center text-gray-500 dark:text-neutral-500">
+                        <span class="hidden" data-check>
+                          <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="20 6 9 17 4 12"/>
+                          </svg>
+                        </span>
+                        <span data-uncheck>
+                          <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M18 6 6 18"/>
+                            <path d="m6 6 12 12"/>
+                          </svg>
+                        </span>
+                        <span class="ms-2">Minimum 6 characters</span>
+                      </div>
+                      <div data-hs-strong-password-hints-rule-text="lowercase" class="hs-strong-password-active:text-teal-500 flex items-center text-gray-500 dark:text-neutral-500">
+                        <span class="hidden" data-check>
+                          <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="20 6 9 17 4 12"/>
+                          </svg>
+                        </span>
+                        <span data-uncheck>
+                          <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M18 6 6 18"/>
+                            <path d="m6 6 12 12"/>
+                          </svg>
+                        </span>
+                        <span class="ms-2">Should contain lowercase.</span>
+                      </div>
+                      <div data-hs-strong-password-hints-rule-text="uppercase" class="hs-strong-password-active:text-teal-500 flex items-center text-gray-500 dark:text-neutral-500">
+                        <span class="hidden" data-check>
+                          <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="20 6 9 17 4 12"/>
+                          </svg>
+                        </span>
+                        <span data-uncheck>
+                          <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M18 6 6 18"/>
+                            <path d="m6 6 12 12"/>
+                          </svg>
+                        </span>
+                        <span class="ms-2">Should contain uppercase.</span>
+                      </div>
+                      <div data-hs-strong-password-hints-rule-text="numbers" class="hs-strong-password-active:text-teal-500 flex items-center text-gray-500 dark:text-neutral-500">
+                        <span class="hidden" data-check>
+                          <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="20 6 9 17 4 12"/>
+                          </svg>
+                        </span>
+                        <span data-uncheck>
+                          <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M18 6 6 18"/>
+                            <path d="m6 6 12 12"/>
+                          </svg>
+                        </span>
+                        <span class="ms-2">Should contain numbers.</span>
+                      </div>
                     </div>
-
-                    <h4 class="mt-3 text-sm font-semibold text-gray-800 dark:text-white">Your password must contain:</h4>
-
-                    <ul class="space-y-1 text-sm text-gray-500 dark:text-neutral-500">
-                      <li data-hs-strong-password-hints-rule-text="min-length" class="hs-strong-password-active:text-teal-500 flex items-center gap-x-2">
-                        <span class="hidden" data-check>
-                          <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <polyline points="20 6 9 17 4 12"></polyline>
-                          </svg>
-                        </span>
-                        <span data-uncheck>
-                          <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M18 6 6 18"></path>
-                            <path d="m6 6 12 12"></path>
-                          </svg>
-                        </span>
-                        Minimum 6 characters
-                      </li>
-                      <li data-hs-strong-password-hints-rule-text="lowercase" class="hs-strong-password-active:text-teal-500 flex items-center gap-x-2">
-                        <span class="hidden" data-check>
-                          <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <polyline points="20 6 9 17 4 12"></polyline>
-                          </svg>
-                        </span>
-                        <span data-uncheck>
-                          <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M18 6 6 18"></path>
-                            <path d="m6 6 12 12"></path>
-                          </svg>
-                        </span>
-                        Should contain lowercase.
-                      </li>
-                      <li data-hs-strong-password-hints-rule-text="uppercase" class="hs-strong-password-active:text-teal-500 flex items-center gap-x-2">
-                        <span class="hidden" data-check>
-                          <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <polyline points="20 6 9 17 4 12"></polyline>
-                          </svg>
-                        </span>
-                        <span data-uncheck>
-                          <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M18 6 6 18"></path>
-                            <path d="m6 6 12 12"></path>
-                          </svg>
-                        </span>
-                        Should contain uppercase.
-                      </li>
-                      <li data-hs-strong-password-hints-rule-text="numbers" class="hs-strong-password-active:text-teal-500 flex items-center gap-x-2">
-                        <span class="hidden" data-check>
-                          <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <polyline points="20 6 9 17 4 12"></polyline>
-                          </svg>
-                        </span>
-                        <span data-uncheck>
-                          <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M18 6 6 18"></path>
-                            <path d="m6 6 12 12"></path>
-                          </svg>
-                        </span>
-                        Should contain numbers.
-                      </li>
-                    </ul>
                   </div>
                 </div>
               </div>
 
-              <!-- Textarea Auto Height -->
+              <!-- Auto-resize Textarea -->
               <div>
-                <label for="hs-textarea-auto-height" class="block text-sm font-medium mb-2 dark:text-white">Auto-resizing textarea</label>
-                <textarea id="hs-textarea-auto-height" class="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600" rows="3" placeholder="This textarea will auto-resize as you type..." data-hs-textarea-auto-height></textarea>
+                <h3 class="text-lg font-medium text-gray-800 dark:text-neutral-200 mb-4">Auto-resize Textarea</h3>
+                <textarea class="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600" rows="3" placeholder="Type your message here... (auto-resizes)" data-hs-textarea-auto-height></textarea>
+              </div>
+
+              <!-- Select Dropdown -->
+              <div>
+                <h3 class="text-lg font-medium text-gray-800 dark:text-neutral-200 mb-4">Select Dropdown</h3>
+                <select data-hs-select='{
+                  "placeholder": "Select option...",
+                  "toggleTag": "<button type=\"button\" aria-expanded=\"false\"></button>",
+                  "toggleClasses": "hs-select-disabled:pointer-events-none hs-select-disabled:opacity-50 relative py-3 ps-4 pe-9 flex gap-x-2 text-nowrap w-full cursor-pointer bg-white border border-gray-200 rounded-lg text-start text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-neutral-600",
+                  "dropdownClasses": "mt-2 z-50 w-full max-h-72 p-1 space-y-0.5 bg-white border border-gray-200 rounded-lg overflow-hidden overflow-y-auto [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-track]:bg-gray-100 [&::-webkit-scrollbar-thumb]:bg-gray-300 dark:[&::-webkit-scrollbar-track]:bg-neutral-700 dark:[&::-webkit-scrollbar-thumb]:bg-neutral-500 dark:bg-neutral-900 dark:border-neutral-700",
+                  "optionClasses": "py-2 px-4 w-full text-sm text-gray-800 cursor-pointer hover:bg-gray-100 rounded-lg focus:outline-none focus:bg-gray-100 dark:bg-neutral-900 dark:hover:bg-neutral-800 dark:text-neutral-200 dark:focus:bg-neutral-800",
+                  "optionTemplate": "<div class=\"flex justify-between items-center w-full\"><span data-title></span><span class=\"hidden hs-selected:block\"><svg class=\"shrink-0 size-3.5 text-blue-600 dark:text-blue-500 \" xmlns=\"http:.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><polyline points=\"20 6 9 17 4 12\"></polyline></svg></span></div>",
+                  "extraMarkup": "<div class=\"absolute top-1/2 end-3 -translate-y-1/2\"><svg class=\"shrink-0 size-3.5 text-gray-500 dark:text-neutral-500 \" xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"m7 15 5 5 5-5\"></path><path d=\"m7 9 5-5 5 5\"></path></svg></div>"
+                }' class="hidden">
+                  <option value="">Choose</option>
+                  <option value="1">Name</option>
+                  <option value="2">Email address</option>
+                  <option value="3">Description</option>
+                  <option value="4">User ID</option>
+                </select>
+              </div>
+
+              <!-- ComboBox -->
+              <div>
+                <h3 class="text-lg font-medium text-gray-800 dark:text-neutral-200 mb-4">ComboBox</h3>
+                <div class="relative" data-hs-combo-box='{"groupingType": "default"}'>
+                  <div class="relative">
+                    <input class="py-3 ps-4 pe-9 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600" type="text" placeholder="Search for items..." data-hs-combo-box-input>
+                    <div class="absolute inset-y-0 end-0 flex items-center pointer-events-none pe-3">
+                      <svg class="shrink-0 size-3.5 text-gray-400 dark:text-neutral-600" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="11" cy="11" r="8"/>
+                        <path d="m21 21-4.35-4.35"/>
+                      </svg>
+                    </div>
+                  </div>
+
+                  <div class="absolute z-50 w-full max-h-72 p-1 bg-white border border-gray-200 rounded-lg overflow-hidden overflow-y-auto [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-track]:bg-gray-100 [&::-webkit-scrollbar-thumb]:bg-gray-300 dark:[&::-webkit-scrollbar-track]:bg-neutral-700 dark:[&::-webkit-scrollbar-thumb]:bg-neutral-500 dark:bg-neutral-900 dark:border-neutral-700" style="display: none;" data-hs-combo-box-output>
+                    <div class="cursor-pointer py-2 px-4 w-full text-sm text-gray-800 hover:bg-gray-100 rounded-lg focus:outline-none focus:bg-gray-100 dark:bg-neutral-900 dark:hover:bg-neutral-800 dark:text-neutral-200 dark:focus:bg-neutral-800" data-hs-combo-box-output-item='{"group": {"name": "fruits", "title": "Fruits"}}'>
+                      <div class="flex justify-between items-center w-full">
+                        <span data-hs-combo-box-search-text="Apple" data-hs-combo-box-value>Apple</span>
+                        <span class="hidden hs-combo-box-selected:block">
+                          <svg class="shrink-0 size-3.5 text-blue-600 dark:text-blue-500" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                          </svg>
+                        </span>
+                      </div>
+                    </div>
+                    <div class="cursor-pointer py-2 px-4 w-full text-sm text-gray-800 hover:bg-gray-100 rounded-lg focus:outline-none focus:bg-gray-100 dark:bg-neutral-900 dark:hover:bg-neutral-800 dark:text-neutral-200 dark:focus:bg-neutral-800" data-hs-combo-box-output-item='{"group": {"name": "fruits", "title": "Fruits"}}'>
+                      <div class="flex justify-between items-center w-full">
+                        <span data-hs-combo-box-search-text="Banana" data-hs-combo-box-value>Banana</span>
+                        <span class="hidden hs-combo-box-selected:block">
+                          <svg class="shrink-0 size-3.5 text-blue-600 dark:text-blue-500" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                          </svg>
+                        </span>
+                      </div>
+                    </div>
+                    <div class="cursor-pointer py-2 px-4 w-full text-sm text-gray-800 hover:bg-gray-100 rounded-lg focus:outline-none focus:bg-gray-100 dark:bg-neutral-900 dark:hover:bg-neutral-800 dark:text-neutral-200 dark:focus:bg-neutral-800" data-hs-combo-box-output-item='{"group": {"name": "vegetables", "title": "Vegetables"}}'>
+                      <div class="flex justify-between items-center w-full">
+                        <span data-hs-combo-box-search-text="Carrot" data-hs-combo-box-value>Carrot</span>
+                        <span class="hidden hs-combo-box-selected:block">
+                          <svg class="shrink-0 size-3.5 text-blue-600 dark:text-blue-500" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                          </svg>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -522,60 +596,63 @@
 
       <!-- Navigation Section -->
       <div id="navigation-section" class="section hidden">
-        <div class="space-y-6">
+        <div class="grid lg:grid-cols-2 gap-6">
           <!-- Accordion -->
-          <div class="bg-white border border-gray-200 rounded-xl shadow-sm dark:bg-neutral-800 dark:border-neutral-700">
-            <div class="p-4 md:p-5">
-              <h3 class="text-lg font-semibold text-gray-800 dark:text-neutral-200 mb-4">Accordion</h3>
+          <div class="bg-white border shadow-sm rounded-xl dark:bg-neutral-800 dark:border-neutral-700">
+            <div class="p-6">
+              <h2 class="text-xl font-semibold text-gray-800 dark:text-neutral-200 mb-6">Accordion</h2>
               
               <div class="hs-accordion-group">
                 <div class="hs-accordion active" id="hs-basic-heading-one">
-                  <button class="hs-accordion-toggle hs-accordion-active:text-blue-600 py-3 inline-flex items-center justify-between gap-x-3 w-full font-semibold text-start text-gray-800 hover:text-gray-500 focus:outline-none focus:text-gray-500 rounded-lg disabled:opacity-50 disabled:pointer-events-none dark:hs-accordion-active:text-blue-500 dark:text-neutral-200 dark:hover:text-neutral-400 dark:focus:text-neutral-400" aria-expanded="true" aria-controls="hs-basic-collapse-one">
-                    Accordion #1
+                  <button class="hs-accordion-toggle hs-accordion-active:text-blue-600 py-3 inline-flex items-center gap-x-3 w-full font-semibold text-start text-gray-800 hover:text-gray-500 rounded-lg disabled:opacity-50 disabled:pointer-events-none dark:hs-accordion-active:text-blue-500 dark:text-neutral-200 dark:hover:text-neutral-400 dark:focus:outline-none dark:focus:text-neutral-400" aria-expanded="true" aria-controls="hs-basic-collapse-one">
                     <svg class="hs-accordion-active:hidden block shrink-0 size-5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                      <path d="m6 9 6 6 6-6"></path>
+                      <path d="M5 12h14"/>
+                      <path d="M12 5v14"/>
                     </svg>
                     <svg class="hs-accordion-active:block hidden shrink-0 size-5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                      <path d="m18 15-6-6-6 6"></path>
+                      <path d="M5 12h14"/>
                     </svg>
+                    What is Preline UI?
                   </button>
                   <div id="hs-basic-collapse-one" class="hs-accordion-content w-full overflow-hidden transition-[height] duration-300" role="region" aria-labelledby="hs-basic-heading-one">
-                    <p class="text-gray-500 dark:text-neutral-400">
-                      <em>This is the third item's accordion body.</em> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions.
+                    <p class="text-gray-600 dark:text-neutral-400">
+                      Preline UI is an open-source set of prebuilt UI components based on the utility-first Tailwind CSS framework.
                     </p>
                   </div>
                 </div>
 
                 <div class="hs-accordion" id="hs-basic-heading-two">
-                  <button class="hs-accordion-toggle hs-accordion-active:text-blue-600 py-3 inline-flex items-center justify-between gap-x-3 w-full font-semibold text-start text-gray-800 hover:text-gray-500 focus:outline-none focus:text-gray-500 rounded-lg disabled:opacity-50 disabled:pointer-events-none dark:hs-accordion-active:text-blue-500 dark:text-neutral-200 dark:hover:text-neutral-400 dark:focus:text-neutral-400" aria-expanded="false" aria-controls="hs-basic-collapse-two">
-                    Accordion #2
+                  <button class="hs-accordion-toggle hs-accordion-active:text-blue-600 py-3 inline-flex items-center gap-x-3 w-full font-semibold text-start text-gray-800 hover:text-gray-500 rounded-lg disabled:opacity-50 disabled:pointer-events-none dark:hs-accordion-active:text-blue-500 dark:text-neutral-200 dark:hover:text-neutral-400 dark:focus:outline-none dark:focus:text-neutral-400" aria-expanded="false" aria-controls="hs-basic-collapse-two">
                     <svg class="hs-accordion-active:hidden block shrink-0 size-5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                      <path d="m6 9 6 6 6-6"></path>
+                      <path d="M5 12h14"/>
+                      <path d="M12 5v14"/>
                     </svg>
                     <svg class="hs-accordion-active:block hidden shrink-0 size-5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                      <path d="m18 15-6-6-6 6"></path>
+                      <path d="M5 12h14"/>
                     </svg>
+                    How do I get started?
                   </button>
                   <div id="hs-basic-collapse-two" class="hs-accordion-content hidden w-full overflow-hidden transition-[height] duration-300" role="region" aria-labelledby="hs-basic-heading-two">
-                    <p class="text-gray-500 dark:text-neutral-400">
-                      <em>This is the second item's accordion body.</em> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions.
+                    <p class="text-gray-600 dark:text-neutral-400">
+                      Getting started is easy! Simply install Preline UI via npm or include it via CDN, then start using the components in your project.
                     </p>
                   </div>
                 </div>
 
                 <div class="hs-accordion" id="hs-basic-heading-three">
-                  <button class="hs-accordion-toggle hs-accordion-active:text-blue-600 py-3 inline-flex items-center justify-between gap-x-3 w-full font-semibold text-start text-gray-800 hover:text-gray-500 focus:outline-none focus:text-gray-500 rounded-lg disabled:opacity-50 disabled:pointer-events-none dark:hs-accordion-active:text-blue-500 dark:text-neutral-200 dark:hover:text-neutral-400 dark:focus:text-neutral-400" aria-expanded="false" aria-controls="hs-basic-collapse-three">
-                    Accordion #3
+                  <button class="hs-accordion-toggle hs-accordion-active:text-blue-600 py-3 inline-flex items-center gap-x-3 w-full font-semibold text-start text-gray-800 hover:text-gray-500 rounded-lg disabled:opacity-50 disabled:pointer-events-none dark:hs-accordion-active:text-blue-500 dark:text-neutral-200 dark:hover:text-neutral-400 dark:focus:outline-none dark:focus:text-neutral-400" aria-expanded="false" aria-controls="hs-basic-collapse-three">
                     <svg class="hs-accordion-active:hidden block shrink-0 size-5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                      <path d="m6 9 6 6 6-6"></path>
+                      <path d="M5 12h14"/>
+                      <path d="M12 5v14"/>
                     </svg>
                     <svg class="hs-accordion-active:block hidden shrink-0 size-5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                      <path d="m18 15-6-6-6 6"></path>
+                      <path d="M5 12h14"/>
                     </svg>
+                    Is it customizable?
                   </button>
                   <div id="hs-basic-collapse-three" class="hs-accordion-content hidden w-full overflow-hidden transition-[height] duration-300" role="region" aria-labelledby="hs-basic-heading-three">
-                    <p class="text-gray-500 dark:text-neutral-400">
-                      <em>This is the first item's accordion body.</em> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions.
+                    <p class="text-gray-600 dark:text-neutral-400">
+                      Absolutely! All components are built with Tailwind CSS utility classes, making them highly customizable and easy to modify.
                     </p>
                   </div>
                 </div>
@@ -584,18 +661,19 @@
           </div>
 
           <!-- Stepper -->
-          <div class="bg-white border border-gray-200 rounded-xl shadow-sm dark:bg-neutral-800 dark:border-neutral-700">
-            <div class="p-4 md:p-5">
-              <h3 class="text-lg font-semibold text-gray-800 dark:text-neutral-200 mb-4">Stepper</h3>
+          <div class="bg-white border shadow-sm rounded-xl dark:bg-neutral-800 dark:border-neutral-700">
+            <div class="p-6">
+              <h2 class="text-xl font-semibold text-gray-800 dark:text-neutral-200 mb-6">Stepper</h2>
               
-              <div data-hs-stepper>
+              <div data-hs-stepper='{"currentIndex": 1}'>
+                <!-- Stepper Nav -->
                 <ul class="relative flex flex-row gap-x-2">
                   <li class="flex items-center gap-x-2 shrink basis-0 flex-1 group" data-hs-stepper-nav-item='{"index": 1}'>
                     <span class="min-w-7 min-h-7 group inline-flex items-center text-xs align-middle">
                       <span class="size-7 flex justify-center items-center shrink-0 bg-gray-100 font-medium text-gray-800 rounded-full group-focus:bg-gray-200 hs-stepper-active:bg-blue-600 hs-stepper-active:text-white hs-stepper-success:bg-blue-600 hs-stepper-success:text-white hs-stepper-completed:bg-teal-500 hs-stepper-completed:group-focus:bg-teal-600 dark:bg-neutral-700 dark:text-white dark:group-focus:bg-gray-600 dark:hs-stepper-active:bg-blue-500 dark:hs-stepper-success:bg-blue-500 dark:hs-stepper-completed:bg-teal-500 dark:hs-stepper-completed:group-focus:bg-teal-600">
                         <span class="hs-stepper-success:hidden hs-stepper-completed:hidden">1</span>
                         <svg class="hidden shrink-0 size-3 hs-stepper-success:block" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-                          <polyline points="20 6 9 17 4 12"></polyline>
+                          <polyline points="20 6 9 17 4 12"/>
                         </svg>
                       </span>
                       <span class="ms-2 text-sm font-medium text-gray-800 group-focus:text-gray-500 dark:text-white dark:group-focus:text-gray-400">
@@ -610,7 +688,7 @@
                       <span class="size-7 flex justify-center items-center shrink-0 bg-gray-100 font-medium text-gray-800 rounded-full group-focus:bg-gray-200 hs-stepper-active:bg-blue-600 hs-stepper-active:text-white hs-stepper-success:bg-blue-600 hs-stepper-success:text-white hs-stepper-completed:bg-teal-500 hs-stepper-completed:group-focus:bg-teal-600 dark:bg-neutral-700 dark:text-white dark:group-focus:bg-gray-600 dark:hs-stepper-active:bg-blue-500 dark:hs-stepper-success:bg-blue-500 dark:hs-stepper-completed:bg-teal-500 dark:hs-stepper-completed:group-focus:bg-teal-600">
                         <span class="hs-stepper-success:hidden hs-stepper-completed:hidden">2</span>
                         <svg class="hidden shrink-0 size-3 hs-stepper-success:block" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-                          <polyline points="20 6 9 17 4 12"></polyline>
+                          <polyline points="20 6 9 17 4 12"/>
                         </svg>
                       </span>
                       <span class="ms-2 text-sm font-medium text-gray-800 group-focus:text-gray-500 dark:text-white dark:group-focus:text-gray-400">
@@ -620,12 +698,12 @@
                     <div class="w-full h-px flex-1 bg-gray-200 group-last:hidden hs-stepper-success:bg-blue-600 hs-stepper-completed:bg-teal-600 dark:bg-neutral-700 dark:hs-stepper-success:bg-blue-600 dark:hs-stepper-completed:bg-teal-600"></div>
                   </li>
 
-                  <li class="flex items-center gap-x-2 shrink basis-0 flex-1 group" data-hs-stepper-nav-item='{"index": 3, "isFinal": true}'>
+                  <li class="flex items-center gap-x-2 shrink basis-0 flex-1 group" data-hs-stepper-nav-item='{"index": 3}'>
                     <span class="min-w-7 min-h-7 group inline-flex items-center text-xs align-middle">
                       <span class="size-7 flex justify-center items-center shrink-0 bg-gray-100 font-medium text-gray-800 rounded-full group-focus:bg-gray-200 hs-stepper-active:bg-blue-600 hs-stepper-active:text-white hs-stepper-success:bg-blue-600 hs-stepper-success:text-white hs-stepper-completed:bg-teal-500 hs-stepper-completed:group-focus:bg-teal-600 dark:bg-neutral-700 dark:text-white dark:group-focus:bg-gray-600 dark:hs-stepper-active:bg-blue-500 dark:hs-stepper-success:bg-blue-500 dark:hs-stepper-completed:bg-teal-500 dark:hs-stepper-completed:group-focus:bg-teal-600">
                         <span class="hs-stepper-success:hidden hs-stepper-completed:hidden">3</span>
                         <svg class="hidden shrink-0 size-3 hs-stepper-success:block" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-                          <polyline points="20 6 9 17 4 12"></polyline>
+                          <polyline points="20 6 9 17 4 12"/>
                         </svg>
                       </span>
                       <span class="ms-2 text-sm font-medium text-gray-800 group-focus:text-gray-500 dark:text-white dark:group-focus:text-gray-400">
@@ -635,51 +713,80 @@
                   </li>
                 </ul>
 
+                <!-- Stepper Content -->
                 <div class="mt-5 sm:mt-8">
                   <div data-hs-stepper-content-item='{"index": 1}'>
-                    <div class="p-4 h-48 bg-gray-50 flex justify-center items-center border border-dashed border-gray-200 rounded-xl dark:bg-neutral-800 dark:border-neutral-700">
-                      <span class="text-gray-400 dark:text-neutral-600">First content</span>
+                    <div class="p-4 bg-gray-50 flex justify-center h-48 rounded-xl dark:bg-neutral-800">
+                      <span class="self-center text-sm text-gray-800 dark:text-neutral-200">First content</span>
                     </div>
                   </div>
 
                   <div data-hs-stepper-content-item='{"index": 2}' style="display: none;">
-                    <div class="p-4 h-48 bg-gray-50 flex justify-center items-center border border-dashed border-gray-200 rounded-xl dark:bg-neutral-800 dark:border-neutral-700">
-                      <span class="text-gray-400 dark:text-neutral-600">Second content</span>
+                    <div class="p-4 bg-gray-50 flex justify-center h-48 rounded-xl dark:bg-neutral-800">
+                      <span class="self-center text-sm text-gray-800 dark:text-neutral-200">Second content</span>
                     </div>
                   </div>
 
                   <div data-hs-stepper-content-item='{"index": 3}' style="display: none;">
-                    <div class="p-4 h-48 bg-gray-50 flex justify-center items-center border border-dashed border-gray-200 rounded-xl dark:bg-neutral-800 dark:border-neutral-700">
-                      <span class="text-gray-400 dark:text-neutral-600">Third content</span>
-                    </div>
-                  </div>
-
-                  <div data-hs-stepper-content-item='{"isFinal": true}' style="display: none;">
-                    <div class="p-4 h-48 bg-gray-50 flex justify-center items-center border border-dashed border-gray-200 rounded-xl dark:bg-neutral-800 dark:border-neutral-700">
-                      <span class="text-gray-400 dark:text-neutral-600">Final content</span>
+                    <div class="p-4 bg-gray-50 flex justify-center h-48 rounded-xl dark:bg-neutral-800">
+                      <span class="self-center text-sm text-gray-800 dark:text-neutral-200">Third content</span>
                     </div>
                   </div>
                 </div>
 
+                <!-- Stepper Buttons -->
                 <div class="mt-5 flex justify-between items-center gap-x-2">
-                  <button type="button" class="py-2 px-3 inline-flex items-center gap-x-1 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-800 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-700 dark:focus:bg-neutral-700" data-hs-stepper-back-btn>
+                  <button type="button" class="py-2 px-3 inline-flex items-center gap-x-1 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-800" data-hs-stepper-back-btn>
                     <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                      <path d="m15 18-6-6 6-6"></path>
+                      <path d="m15 18-6-6 6-6"/>
                     </svg>
                     Back
                   </button>
-                  <button type="button" class="py-2 px-3 inline-flex items-center gap-x-1 text-sm font-medium rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 focus:outline-none focus:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none" data-hs-stepper-next-btn>
+                  <button type="button" class="py-2 px-3 inline-flex items-center gap-x-1 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none" data-hs-stepper-next-btn>
                     Next
                     <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                      <path d="m9 18 6-6-6-6"></path>
+                      <path d="m9 18 6-6-6-6"/>
                     </svg>
                   </button>
-                  <button type="button" class="py-2 px-3 inline-flex items-center gap-x-1 text-sm font-medium rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 focus:outline-none focus:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none" data-hs-stepper-finish-btn style="display: none;">
-                    Finish
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tabs -->
+          <div class="bg-white border shadow-sm rounded-xl dark:bg-neutral-800 dark:border-neutral-700">
+            <div class="p-6">
+              <h2 class="text-xl font-semibold text-gray-800 dark:text-neutral-200 mb-6">Tabs</h2>
+              
+              <div class="border-b border-gray-200 dark:border-neutral-700">
+                <nav class="flex gap-x-1" aria-label="Tabs" role="tablist" aria-orientation="horizontal">
+                  <button type="button" class="hs-tab-active:font-semibold hs-tab-active:border-blue-600 hs-tab-active:text-blue-600 py-4 px-1 inline-flex items-center gap-x-2 border-b-2 border-transparent text-sm whitespace-nowrap text-gray-500 hover:text-blue-600 focus:outline-none focus:text-blue-600 disabled:opacity-50 disabled:pointer-events-none dark:text-neutral-400 dark:hover:text-blue-500 active" id="tabs-with-underline-item-1" aria-selected="true" data-hs-tab="#tabs-with-underline-1" aria-controls="tabs-with-underline-1" role="tab">
+                    Tab 1
                   </button>
-                  <button type="button" class="py-2 px-3 inline-flex items-center gap-x-1 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-800 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-700 dark:focus:bg-neutral-700" data-hs-stepper-reset-btn style="display: none;">
-                    Reset
+                  <button type="button" class="hs-tab-active:font-semibold hs-tab-active:border-blue-600 hs-tab-active:text-blue-600 py-4 px-1 inline-flex items-center gap-x-2 border-b-2 border-transparent text-sm whitespace-nowrap text-gray-500 hover:text-blue-600 focus:outline-none focus:text-blue-600 disabled:opacity-50 disabled:pointer-events-none dark:text-neutral-400 dark:hover:text-blue-500" id="tabs-with-underline-item-2" aria-selected="false" data-hs-tab="#tabs-with-underline-2" aria-controls="tabs-with-underline-2" role="tab">
+                    Tab 2
                   </button>
+                  <button type="button" class="hs-tab-active:font-semibold hs-tab-active:border-blue-600 hs-tab-active:text-blue-600 py-4 px-1 inline-flex items-center gap-x-2 border-b-2 border-transparent text-sm whitespace-nowrap text-gray-500 hover:text-blue-600 focus:outline-none focus:text-blue-600 disabled:opacity-50 disabled:pointer-events-none dark:text-neutral-400 dark:hover:text-blue-500" id="tabs-with-underline-item-3" aria-selected="false" data-hs-tab="#tabs-with-underline-3" aria-controls="tabs-with-underline-3" role="tab">
+                    Tab 3
+                  </button>
+                </nav>
+              </div>
+
+              <div class="mt-3">
+                <div id="tabs-with-underline-1" role="tabpanel" aria-labelledby="tabs-with-underline-item-1">
+                  <p class="text-gray-500 dark:text-neutral-400">
+                    This is the <em class="font-semibold text-gray-800 dark:text-neutral-200">first</em> item's tab body.
+                  </p>
+                </div>
+                <div id="tabs-with-underline-2" class="hidden" role="tabpanel" aria-labelledby="tabs-with-underline-item-2">
+                  <p class="text-gray-500 dark:text-neutral-400">
+                    This is the <em class="font-semibold text-gray-800 dark:text-neutral-200">second</em> item's tab body.
+                  </p>
+                </div>
+                <div id="tabs-with-underline-3" class="hidden" role="tabpanel" aria-labelledby="tabs-with-underline-item-3">
+                  <p class="text-gray-500 dark:text-neutral-400">
+                    This is the <em class="font-semibold text-gray-800 dark:text-neutral-200">third</em> item's tab body.
+                  </p>
                 </div>
               </div>
             </div>
@@ -689,72 +796,72 @@
 
       <!-- Overlays Section -->
       <div id="overlays-section" class="section hidden">
-        <div class="space-y-6">
-          <!-- Modal Example -->
-          <div class="bg-white border border-gray-200 rounded-xl shadow-sm dark:bg-neutral-800 dark:border-neutral-700">
-            <div class="p-4 md:p-5">
-              <h3 class="text-lg font-semibold text-gray-800 dark:text-neutral-200 mb-4">Modal & Overlay</h3>
-              
-              <button type="button" class="py-3 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 focus:outline-none focus:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none" data-hs-overlay="#hs-basic-modal">
-                Open modal
-              </button>
+        <div class="bg-white border shadow-sm rounded-xl dark:bg-neutral-800 dark:border-neutral-700">
+          <div class="p-6">
+            <h2 class="text-xl font-semibold text-gray-800 dark:text-neutral-200 mb-6">Overlays & Tooltips</h2>
+            
+            <div class="space-y-8">
+              <!-- Modal -->
+              <div>
+                <h3 class="text-lg font-medium text-gray-800 dark:text-neutral-200 mb-4">Modal Dialog</h3>
+                <button type="button" class="py-3 px-4 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none" data-hs-overlay="#hs-basic-modal">
+                  Open modal
+                </button>
 
-              <div id="hs-basic-modal" class="hs-overlay hidden size-full fixed top-0 start-0 z-[80] overflow-x-hidden overflow-y-auto pointer-events-none" role="dialog" tabindex="-1" aria-labelledby="hs-basic-modal-label">
-                <div class="hs-overlay-open:mt-7 hs-overlay-open:opacity-100 hs-overlay-open:duration-500 mt-0 opacity-0 ease-out transition-all sm:max-w-lg sm:w-full m-3 sm:mx-auto">
-                  <div class="flex flex-col bg-white border shadow-sm rounded-xl pointer-events-auto dark:bg-neutral-800 dark:border-neutral-700 dark:shadow-neutral-700/70">
-                    <div class="flex justify-between items-center py-3 px-4 border-b dark:border-neutral-700">
-                      <h3 id="hs-basic-modal-label" class="font-bold text-gray-800 dark:text-white">
-                        Modal title
-                      </h3>
-                      <button type="button" class="size-8 inline-flex justify-center items-center gap-x-2 rounded-full border border-transparent bg-gray-100 text-gray-800 hover:bg-gray-200 focus:outline-none focus:bg-gray-200 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-700 dark:hover:bg-neutral-600 dark:text-neutral-400 dark:focus:bg-neutral-600" aria-label="Close" data-hs-overlay="#hs-basic-modal">
-                        <span class="sr-only">Close</span>
-                        <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                          <path d="M18 6 6 18"></path>
-                          <path d="m6 6 12 12"></path>
-                        </svg>
-                      </button>
-                    </div>
-                    <div class="p-4 overflow-y-auto">
-                      <p class="text-gray-800 dark:text-neutral-400">
-                        This is a wider card with supporting text below as a natural lead-in to additional content.
-                      </p>
-                    </div>
-                    <div class="flex justify-end items-center gap-x-2 py-3 px-4 border-t dark:border-neutral-700">
-                      <button type="button" class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-800 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-700 dark:focus:bg-neutral-700" data-hs-overlay="#hs-basic-modal">
-                        Close
-                      </button>
-                      <button type="button" class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 focus:outline-none focus:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none">
-                        Save changes
-                      </button>
+                <div id="hs-basic-modal" class="hs-overlay hidden size-full fixed top-0 start-0 z-[80] overflow-x-hidden overflow-y-auto pointer-events-none" role="dialog" tabindex="-1" aria-labelledby="hs-basic-modal-label">
+                  <div class="hs-overlay-open:mt-7 hs-overlay-open:opacity-100 hs-overlay-open:duration-500 mt-0 opacity-0 ease-out transition-all sm:max-w-lg sm:w-full m-3 sm:mx-auto">
+                    <div class="flex flex-col bg-white border shadow-sm rounded-xl pointer-events-auto dark:bg-neutral-800 dark:border-neutral-700 dark:shadow-neutral-700/70">
+                      <div class="flex justify-between items-center py-3 px-4 border-b dark:border-neutral-700">
+                        <h3 id="hs-basic-modal-label" class="font-bold text-gray-800 dark:text-white">
+                          Modal title
+                        </h3>
+                        <button type="button" class="size-8 inline-flex justify-center items-center gap-x-2 rounded-full border border-transparent bg-gray-100 text-gray-800 hover:bg-gray-200 focus:outline-none focus:bg-gray-200 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-700 dark:hover:bg-neutral-600 dark:text-neutral-400 dark:focus:bg-neutral-600" aria-label="Close" data-hs-overlay="#hs-basic-modal">
+                          <span class="sr-only">Close</span>
+                          <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M18 6 6 18"/>
+                            <path d="m6 6 12 12"/>
+                          </svg>
+                        </button>
+                      </div>
+                      <div class="p-4 overflow-y-auto">
+                        <p class="mt-1 text-gray-800 dark:text-neutral-400">
+                          This is a wider card with supporting text below as a natural lead-in to additional content.
+                        </p>
+                      </div>
+                      <div class="flex justify-end items-center gap-x-2 py-3 px-4 border-t dark:border-neutral-700">
+                        <button type="button" class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-800" data-hs-overlay="#hs-basic-modal">
+                          Close
+                        </button>
+                        <button type="button" class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none">
+                          Save changes
+                        </button>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
 
-          <!-- Tooltip Example -->
-          <div class="bg-white border border-gray-200 rounded-xl shadow-sm dark:bg-neutral-800 dark:border-neutral-700">
-            <div class="p-4 md:p-5">
-              <h3 class="text-lg font-semibold text-gray-800 dark:text-neutral-200 mb-4">Tooltips</h3>
-              
-              <div class="flex gap-4">
-                <div class="hs-tooltip inline-block">
-                  <button type="button" class="hs-tooltip-toggle py-3 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-800 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-700 dark:focus:bg-neutral-700">
-                    Hover me
-                  </button>
-                  <span class="hs-tooltip-content hs-tooltip-shown:opacity-100 hs-tooltip-shown:visible opacity-0 transition-opacity inline-block absolute invisible z-10 py-1 px-2 bg-gray-900 text-xs font-medium text-white rounded shadow-sm dark:bg-neutral-700" role="tooltip">
-                    Tooltip text
-                  </span>
-                </div>
+              <!-- Tooltips -->
+              <div>
+                <h3 class="text-lg font-medium text-gray-800 dark:text-neutral-200 mb-4">Tooltips</h3>
+                <div class="flex flex-wrap gap-3">
+                  <div class="hs-tooltip inline-block">
+                    <button type="button" class="hs-tooltip-toggle py-3 px-4 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none">
+                      Hover me
+                      <div class="hs-tooltip-content hs-tooltip-shown:opacity-100 hs-tooltip-shown:visible opacity-0 transition-opacity inline-block absolute invisible z-10 py-1 px-2 bg-gray-900 text-xs font-medium text-white rounded shadow-sm dark:bg-neutral-700" role="tooltip">
+                        Tooltip text
+                      </div>
+                    </button>
+                  </div>
 
-                <div class="hs-tooltip inline-block" data-hs-tooltip='{"placement": "top"}'>
-                  <button type="button" class="hs-tooltip-toggle py-3 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-800 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-700 dark:focus:bg-neutral-700">
-                    Top tooltip
-                  </button>
-                  <span class="hs-tooltip-content hs-tooltip-shown:opacity-100 hs-tooltip-shown:visible opacity-0 transition-opacity inline-block absolute invisible z-10 py-1 px-2 bg-gray-900 text-xs font-medium text-white rounded shadow-sm dark:bg-neutral-700" role="tooltip">
-                    Top tooltip text
-                  </span>
+                  <div class="hs-tooltip inline-block">
+                    <button type="button" class="hs-tooltip-toggle py-3 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-800">
+                      Click me
+                      <div class="hs-tooltip-content hs-tooltip-shown:opacity-100 hs-tooltip-shown:visible opacity-0 transition-opacity inline-block absolute invisible z-10 py-1 px-2 bg-gray-900 text-xs font-medium text-white rounded shadow-sm dark:bg-neutral-700" role="tooltip">
+                        Click tooltip
+                      </div>
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
@@ -764,10 +871,11 @@
 
       <!-- Data Section -->
       <div id="data-section" class="section hidden">
-        <div class="bg-white border border-gray-200 rounded-xl shadow-sm dark:bg-neutral-800 dark:border-neutral-700">
-          <div class="p-4 md:p-5">
-            <h3 class="text-lg font-semibold text-gray-800 dark:text-neutral-200 mb-4">Data Table</h3>
+        <div class="bg-white border shadow-sm rounded-xl dark:bg-neutral-800 dark:border-neutral-700">
+          <div class="p-6">
+            <h2 class="text-xl font-semibold text-gray-800 dark:text-neutral-200 mb-6">Data Display</h2>
             
+            <!-- Sample Table -->
             <div class="overflow-hidden">
               <table class="min-w-full divide-y divide-gray-200 dark:divide-neutral-700">
                 <thead class="bg-gray-50 dark:bg-neutral-700">
@@ -784,7 +892,7 @@
                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-neutral-200">45</td>
                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-neutral-200">New York No. 1 Lake Park</td>
                     <td class="px-6 py-4 whitespace-nowrap text-end text-sm font-medium">
-                      <button type="button" class="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-blue-600 hover:text-blue-800 focus:outline-none focus:text-blue-800 disabled:opacity-50 disabled:pointer-events-none dark:text-blue-500 dark:hover:text-blue-400 dark:focus:text-blue-400">Delete</button>
+                      <button type="button" class="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-blue-600 hover:text-blue-800 disabled:opacity-50 disabled:pointer-events-none dark:text-blue-500 dark:hover:text-blue-400">Delete</button>
                     </td>
                   </tr>
                   <tr>
@@ -792,7 +900,7 @@
                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-neutral-200">27</td>
                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-neutral-200">London No. 1 Lake Park</td>
                     <td class="px-6 py-4 whitespace-nowrap text-end text-sm font-medium">
-                      <button type="button" class="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-blue-600 hover:text-blue-800 focus:outline-none focus:text-blue-800 disabled:opacity-50 disabled:pointer-events-none dark:text-blue-500 dark:hover:text-blue-400 dark:focus:text-blue-400">Delete</button>
+                      <button type="button" class="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-blue-600 hover:text-blue-800 disabled:opacity-50 disabled:pointer-events-none dark:text-blue-500 dark:hover:text-blue-400">Delete</button>
                     </td>
                   </tr>
                   <tr>
@@ -800,7 +908,7 @@
                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-neutral-200">32</td>
                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-neutral-200">Sydney No. 1 Lake Park</td>
                     <td class="px-6 py-4 whitespace-nowrap text-end text-sm font-medium">
-                      <button type="button" class="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-blue-600 hover:text-blue-800 focus:outline-none focus:text-blue-800 disabled:opacity-50 disabled:pointer-events-none dark:text-blue-500 dark:hover:text-blue-400 dark:focus:text-blue-400">Delete</button>
+                      <button type="button" class="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-blue-600 hover:text-blue-800 disabled:opacity-50 disabled:pointer-events-none dark:text-blue-500 dark:hover:text-blue-400">Delete</button>
                     </td>
                   </tr>
                 </tbody>
@@ -810,37 +918,131 @@
         </div>
       </div>
 
-      <!-- Settings Section -->
-      <div id="settings-section" class="section hidden">
-        <div class="bg-white border border-gray-200 rounded-xl shadow-sm dark:bg-neutral-800 dark:border-neutral-700">
-          <div class="p-4 md:p-5">
-            <h3 class="text-lg font-semibold text-gray-800 dark:text-neutral-200 mb-4">Settings</h3>
+      <!-- Playground Section -->
+      <div id="playground-section" class="section hidden">
+        <div class="bg-white border shadow-sm rounded-xl dark:bg-neutral-800 dark:border-neutral-700">
+          <div class="p-6">
+            <h2 class="text-xl font-semibold text-gray-800 dark:text-neutral-200 mb-6">Interactive Playground</h2>
             
-            <div class="space-y-4">
+            <div class="grid lg:grid-cols-2 gap-8">
               <!-- Toggle Count -->
-              <div class="flex items-center">
-                <input type="checkbox" id="hs-basic-usage" class="relative w-[3.25rem] h-7 p-px bg-gray-100 border-transparent text-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:ring-blue-600 disabled:opacity-50 disabled:pointer-events-none checked:bg-none checked:text-blue-600 checked:border-blue-600 focus:checked:border-blue-600 dark:bg-neutral-800 dark:border-neutral-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-600 before:inline-block before:size-6 before:bg-white checked:before:bg-blue-200 before:translate-x-0 checked:before:translate-x-full before:rounded-full before:shadow before:transform before:ring-0 before:transition before:ease-in-out before:duration-200 dark:before:bg-neutral-400 dark:checked:before:bg-blue-200">
-                <label for="hs-basic-usage" class="text-sm text-gray-500 ms-3 dark:text-neutral-400">Enable notifications</label>
+              <div>
+                <h3 class="text-lg font-medium text-gray-800 dark:text-neutral-200 mb-4">Toggle Count</h3>
+                <div class="flex items-center">
+                  <input type="checkbox" id="hs-basic-with-description-checked" class="relative w-[3.25rem] h-7 p-px bg-gray-100 border-transparent text-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:ring-blue-600 disabled:opacity-50 disabled:pointer-events-none checked:bg-none checked:text-blue-600 checked:border-blue-600 focus:checked:border-blue-600 dark:bg-neutral-800 dark:border-neutral-700 dark:checked:bg-blue-600 dark:checked:border-blue-600 dark:focus:ring-offset-gray-600 before:inline-block before:size-6 before:bg-white checked:before:bg-blue-200 before:translate-x-0 checked:before:translate-x-full before:rounded-full before:shadow before:transform before:ring-0 before:transition before:ease-in-out before:duration-200 dark:before:bg-neutral-400 dark:checked:before:bg-blue-200">
+                  <label for="hs-basic-with-description-checked" class="text-sm text-gray-500 ms-3 dark:text-neutral-400">
+                    Notifications: <span data-hs-toggle-count='{"target": "#hs-basic-with-description-checked", "min": 0, "max": 25}'>0</span>
+                  </label>
+                </div>
               </div>
 
-              <!-- Toggle with Counter -->
-              <div class="flex items-center justify-between">
-                <label for="toggle-count" class="text-sm text-gray-500 dark:text-neutral-400">Active users</label>
-                <div class="flex items-center gap-x-3">
-                  <span data-hs-toggle-count='{"target": "#toggle-count", "min": 0, "max": 100}' class="text-sm text-gray-800 dark:text-neutral-200">0</span>
-                  <input type="checkbox" id="toggle-count" class="relative w-[3.25rem] h-7 p-px bg-gray-100 border-transparent text-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:ring-blue-600 disabled:opacity-50 disabled:pointer-events-none checked:bg-none checked:text-blue-600 checked:border-blue-600 focus:checked:border-blue-600 dark:bg-neutral-800 dark:border-neutral-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-600 before:inline-block before:size-6 before:bg-white checked:before:bg-blue-200 before:translate-x-0 checked:before:translate-x-full before:rounded-full before:shadow before:transform before:ring-0 before:transition before:ease-in-out before:duration-200 dark:before:bg-neutral-400 dark:checked:before:bg-blue-200">
+              <!-- Copy Markup -->
+              <div>
+                <h3 class="text-lg font-medium text-gray-800 dark:text-neutral-200 mb-4">Copy Markup</h3>
+                <div class="space-y-3">
+                  <button type="button" class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-800" data-hs-copy-markup='{"targetSelector": "#copy-markup-target", "wrapperSelector": "#copy-markup-wrapper"}'>
+                    <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M5 12h14"/>
+                      <path d="M12 5v14"/>
+                    </svg>
+                    Add item
+                  </button>
+                  
+                  <div id="copy-markup-wrapper" class="space-y-2">
+                    <!-- Items will be copied here -->
+                  </div>
+                  
+                  <div id="copy-markup-target" class="hidden">
+                    <div class="flex items-center justify-between p-3 bg-gray-50 border border-gray-200 rounded-lg dark:bg-neutral-700 dark:border-neutral-600">
+                      <span class="text-sm text-gray-800 dark:text-neutral-200">New item</span>
+                      <button type="button" class="text-gray-500 hover:text-gray-800 dark:text-neutral-400 dark:hover:text-neutral-200" data-hs-copy-markup-delete-item>
+                        <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="M18 6 6 18"/>
+                          <path d="m6 6 12 12"/>
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Remove Element -->
+              <div>
+                <h3 class="text-lg font-medium text-gray-800 dark:text-neutral-200 mb-4">Remove Element</h3>
+                <div class="space-y-3">
+                  <div id="dismiss-alert" class="bg-blue-50 border border-blue-200 text-sm text-blue-800 rounded-lg p-4 dark:bg-blue-800/10 dark:border-blue-900 dark:text-blue-500" role="alert" tabindex="-1" aria-labelledby="hs-dismiss-button-label">
+                    <div class="flex">
+                      <div class="flex-shrink-0">
+                        <svg class="shrink-0 size-4 mt-0.5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <circle cx="12" cy="12" r="10"/>
+                          <path d="m9 12 2 2 4-4"/>
+                        </svg>
+                      </div>
+                      <div class="ms-2">
+                        <h3 id="hs-dismiss-button-label" class="text-sm font-medium">
+                          Successfully uploaded.
+                        </h3>
+                      </div>
+                      <div class="ps-3 ms-auto">
+                        <div class="-mx-1.5 -my-1.5">
+                          <button type="button" class="inline-flex bg-blue-50 rounded-lg p-1.5 text-blue-500 hover:bg-blue-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-blue-50 focus:ring-blue-600 dark:bg-transparent dark:hover:bg-blue-800/50 dark:text-blue-600" data-hs-remove-element="#dismiss-alert">
+                            <span class="sr-only">Dismiss</span>
+                            <svg class="shrink-0 size-3" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                              <path d="M18 6 6 18"/>
+                              <path d="m6 6 12 12"/>
+                            </svg>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Tree View -->
+              <div>
+                <h3 class="text-lg font-medium text-gray-800 dark:text-neutral-200 mb-4">Tree View</h3>
+                <div data-hs-tree-view='{"controlBy": "checkbox"}'>
+                  <div class="space-y-2">
+                    <div data-hs-tree-view-item='{"value": "folder1", "isDir": true}' class="cursor-pointer flex items-center gap-x-3 py-2 px-3 text-sm text-gray-800 rounded-lg hover:bg-gray-100 dark:text-neutral-200 dark:hover:bg-neutral-700">
+                      <input type="checkbox" value="folder1" class="shrink-0 border-gray-300 rounded text-blue-600 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-800 dark:border-neutral-600 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800">
+                      <svg class="shrink-0 size-4 text-gray-500 dark:text-neutral-500" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"/>
+                      </svg>
+                      <span>Documents</span>
+                    </div>
+                    
+                    <div class="ps-7 space-y-2">
+                      <div data-hs-tree-view-item='{"value": "file1", "isDir": false}' class="cursor-pointer flex items-center gap-x-3 py-2 px-3 text-sm text-gray-800 rounded-lg hover:bg-gray-100 dark:text-neutral-200 dark:hover:bg-neutral-700">
+                        <input type="checkbox" value="file1" class="shrink-0 border-gray-300 rounded text-blue-600 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-800 dark:border-neutral-600 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800">
+                        <svg class="shrink-0 size-4 text-gray-500 dark:text-neutral-500" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/>
+                          <path d="M14 2v4a2 2 0 0 0 2 2h4"/>
+                        </svg>
+                        <span>Report.pdf</span>
+                      </div>
+                      
+                      <div data-hs-tree-view-item='{"value": "file2", "isDir": false}' class="cursor-pointer flex items-center gap-x-3 py-2 px-3 text-sm text-gray-800 rounded-lg hover:bg-gray-100 dark:text-neutral-200 dark:hover:bg-neutral-700">
+                        <input type="checkbox" value="file2" class="shrink-0 border-gray-300 rounded text-blue-600 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-800 dark:border-neutral-600 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800">
+                        <svg class="shrink-0 size-4 text-gray-500 dark:text-neutral-500" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/>
+                          <path d="M14 2v4a2 2 0 0 0 2 2h4"/>
+                        </svg>
+                        <span>Presentation.pptx</span>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-
     </div>
   </div>
 
-  <!-- Scripts -->
-  <script src="./dist/index.js"></script>
+  <!-- JavaScript -->
+  <script src="https://preline.co/assets/js/preline.js"></script>
   <script>
     // Navigation function
     function showSection(sectionName) {
@@ -860,17 +1062,33 @@
         link.classList.remove('bg-gray-100', 'dark:bg-neutral-700');
       });
       
-      const activeLink = document.querySelector(`a[onclick="showSection('${sectionName}')"]`);
+      // Find and activate the clicked nav item
+      const activeLink = document.querySelector(`[onclick="showSection('${sectionName}')"]`);
       if (activeLink) {
         activeLink.classList.add('bg-gray-100', 'dark:bg-neutral-700');
       }
     }
 
-    // Initialize components when DOM is loaded
+    // Initialize components when page loads
     document.addEventListener('DOMContentLoaded', function() {
       // Auto-initialize all Preline components
       if (window.HSStaticMethods) {
         window.HSStaticMethods.autoInit();
+      }
+      
+      // Show overview section by default
+      showSection('overview');
+    });
+
+    // Mobile sidebar toggle
+    document.addEventListener('DOMContentLoaded', function() {
+      const toggleButton = document.querySelector('[data-hs-collapse="#sidebar-mobile"]');
+      const sidebar = document.getElementById('sidebar-mobile');
+      
+      if (toggleButton && sidebar) {
+        toggleButton.addEventListener('click', function() {
+          sidebar.classList.toggle('open');
+        });
       }
     });
   </script>
