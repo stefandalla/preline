@@ -22,7 +22,6 @@ import HSComboBox from "../plugins/combobox";
 let HSDataTable;
 let HSFileUpload;
 let HSRangeSlider;
-let HSDatepicker;
 
 import HSDropdown from "../plugins/dropdown";
 import HSLayoutSplitter from "../plugins/layout-splitter";
@@ -70,15 +69,6 @@ if (typeof window !== "undefined") {
 		console.warn("HSRangeSlider: Required dependencies not found");
 		HSRangeSlider = null;
 	}
-
-	try {
-		if (typeof VanillaCalendarPro !== "undefined") {
-			HSDatepicker = require("../plugins/datepicker").default;
-		}
-	} catch (e) {
-		console.warn("HSDatepicker: Required dependencies not found");
-		HSDatepicker = null;
-	}
 }
 
 export const COLLECTIONS: ISpaCollectionItem[] = [
@@ -96,13 +86,6 @@ export const COLLECTIONS: ISpaCollectionItem[] = [
 			key: "datatable",
 			fn: HSDataTable,
 			collection: "$hsDataTableCollection",
-		}]
-		: []),
-	...(HSDatepicker
-		? [{
-			key: "datepicker",
-			fn: HSDatepicker,
-			collection: "$hsDatepickerCollection",
 		}]
 		: []),
 	{ key: "dropdown", fn: HSDropdown, collection: "$hsDropdownCollection" },

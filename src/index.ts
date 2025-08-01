@@ -14,7 +14,6 @@ declare var VanillaCalendarPro: any;
 let HSDataTableModule;
 let HSFileUploadModule;
 let HSRangeSliderModule;
-let HSDatepickerModule;
 
 export { default as HSCopyMarkup } from "./plugins/copy-markup";
 export { default as HSAccordion } from "./plugins/accordion";
@@ -68,18 +67,8 @@ if (typeof window !== "undefined") {
 		console.warn("HSRangeSlider: Required dependencies not found");
 		HSRangeSliderModule = null;
 	}
-
-	try {
-		if (typeof VanillaCalendarPro !== "undefined") {
-			HSDatepickerModule = require("./plugins/datepicker").default;
-		}
-	} catch (e) {
-		console.warn("HSDatepicker: Required dependencies not found");
-		HSDatepickerModule = null;
-	}
 }
 
 export { HSDataTableModule as HSDataTable };
 export { HSFileUploadModule as HSFileUpload };
 export { HSRangeSliderModule as HSRangeSlider };
-export { HSDatepickerModule as HSDatepicker };
