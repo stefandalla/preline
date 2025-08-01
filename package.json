@@ -44,6 +44,8 @@
 		"watch:mjs": "webpack --config webpack.config.mjs.js --watch",
 		"build": "webpack --config webpack.config.js",
 		"build:mjs": "webpack --config webpack.config.mjs.js",
+		"dev": "webpack serve --config webpack.dev.js --open",
+		"start": "npm run dev",
 		"pretty": "prettier --write \"./**/*.{js,jsx,ts,tsx,json}\"",
 		"generate-dts": "dts-bundle-generator --config dts-config.js"
 	},
@@ -63,11 +65,14 @@
 		"@types/prismjs": "^1.26.4",
 		"@types/vinyl": "^2.0.12",
 		"dts-bundle-generator": "^9.0.0",
+		"html-webpack-plugin": "^5.5.3",
+		"webpack-dev-server": "^4.15.1",
 		"prettier": "^3.0.1",
 		"source-map-loader": "^4.0.1",
 		"terser-webpack-plugin": "^5.3.9",
 		"ts-loader": "^9.5.1",
 		"typescript": "^5.5.3",
+		"webpack": "^5.88.2",
 		"webpack-cli": "^5.0.1"
 	}
 }
