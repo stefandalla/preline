@@ -1090,5 +1090,6 @@ declare global {
 
 window.addEventListener("load", () => {
 	HSCarousel.autoInit();
+});
 
 export default HSCarousel;
