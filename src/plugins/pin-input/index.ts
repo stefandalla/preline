@@ -332,8 +332,4 @@ window.addEventListener('load', () => {
 	// console.log('PIN input collection:', window.$hsPinInputCollection);
 });
 
-if (typeof window !== 'undefined') {
-	window.HSPinInput = HSPinInput;
-}
-
 export default HSPinInput;

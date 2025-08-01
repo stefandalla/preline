@@ -1222,8 +1222,4 @@ document.addEventListener('scroll', () => {
 		target.element.recalculateDirection();
 });
 
-if (typeof window !== 'undefined') {
-	window.HSComboBox = HSComboBox;
-}
-
 export default HSComboBox;

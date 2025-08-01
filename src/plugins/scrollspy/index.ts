@@ -251,8 +251,4 @@ window.addEventListener('load', () => {
 	// console.log('Scrollspy collection:', window.$hsScrollspyCollection);
 });
 
-if (typeof window !== 'undefined') {
-	window.HSScrollspy = HSScrollspy;
-}
-
 export default HSScrollspy;

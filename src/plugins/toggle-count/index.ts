@@ -154,8 +154,4 @@ window.addEventListener('load', () => {
 	// console.log('Toggle count collection:', window.$hsToggleCountCollection);
 });
 
-if (typeof window !== 'undefined') {
-	window.HSToggleCount = HSToggleCount;
-}
-
 export default HSToggleCount;

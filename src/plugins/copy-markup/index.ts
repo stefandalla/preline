@@ -225,8 +225,4 @@ window.addEventListener('load', () => {
 	// console.log('Copy markup collection:', window.$hsCopyMarkupCollection);
 });
 
-if (typeof window !== 'undefined') {
-	window.HSCopyMarkup = HSCopyMarkup;
-}
-
 export default HSCopyMarkup;

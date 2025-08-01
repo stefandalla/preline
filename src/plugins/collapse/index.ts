@@ -215,8 +215,4 @@ window.addEventListener('load', () => {
 	// console.log('Collapse collection:', window.$hsCollapseCollection);
 });
 
-if (typeof window !== 'undefined') {
-	window.HSCollapse = HSCollapse;
-}
-
 export default HSCollapse;

@@ -441,8 +441,4 @@ window.addEventListener('load', () => {
 	// console.log('File upload collection:', window.$hsFileUploadCollection);
 });
 
-if (typeof window !== 'undefined') {
-	window.HSFileUpload = HSFileUpload;
-}
-
 export default HSFileUpload;

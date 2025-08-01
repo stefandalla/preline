@@ -137,8 +137,4 @@ window.addEventListener('load', () => {
 	// console.log('Remove element collection:', window.$hsRemoveElementCollection);
 });
 
-if (typeof window !== 'undefined') {
-	window.HSRemoveElement = HSRemoveElement;
-}
-
 export default HSRemoveElement;

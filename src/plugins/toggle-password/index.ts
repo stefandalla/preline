@@ -234,8 +234,4 @@ window.addEventListener('load', () => {
 	// console.log('Toggle password collection:', window.$hsTogglePasswordCollection);
 });
 
-if (typeof window !== 'undefined') {
-	window.HSTogglePassword = HSTogglePassword;
-}
-
 export default HSTogglePassword;

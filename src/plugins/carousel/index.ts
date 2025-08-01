@@ -1091,12 +1091,4 @@ declare global {
 window.addEventListener("load", () => {
 	HSCarousel.autoInit();
 
-	// Uncomment for debug
-	// console.log('Carousel collection:', window.$hsCarouselCollection);
-});
-
-if (typeof window !== "undefined") {
-	window.HSCarousel = HSCarousel;
-}
-
 export default HSCarousel;

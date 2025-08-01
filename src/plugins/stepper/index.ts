@@ -911,8 +911,4 @@ window.addEventListener('load', () => {
 	// console.log('Stepper collection:', window.$hsStepperCollection);
 });
 
-if (typeof window !== 'undefined') {
-	window.HSStepper = HSStepper;
-}
-
 export default HSStepper;

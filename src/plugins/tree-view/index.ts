@@ -363,8 +363,4 @@ window.addEventListener('load', () => {
 	// console.log('Tree view collection:', window.$hsTreeViewCollection);
 });
 
-if (typeof window !== 'undefined') {
-	window.HSTreeView = HSTreeView;
-}
-
 export default HSTreeView;

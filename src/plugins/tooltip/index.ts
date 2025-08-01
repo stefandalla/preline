@@ -326,8 +326,4 @@ window.addEventListener('load', () => {
 	// console.log('Tooltip collection:', window.$hsTooltipCollection);
 });
 
-if (typeof window !== 'undefined') {
-	window.HSTooltip = HSTooltip;
-}
-
 export default HSTooltip;

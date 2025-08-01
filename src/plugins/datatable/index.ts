@@ -559,8 +559,4 @@ window.addEventListener('load', () => {
 	// console.log('Datatable collection:', window.$hsDataTableCollection);
 });
 
-if (typeof window !== 'undefined') {
-	window.HSDataTable = HSDataTable;
-}
-
 export default HSDataTable;

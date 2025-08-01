@@ -721,8 +721,4 @@ window.addEventListener('load', () => {
 	// console.log('Layout splitter collection:', window.$hsLayoutSplitterCollection);
 });
 
-if (typeof window !== 'undefined') {
-	window.HSLayoutSplitter = HSLayoutSplitter;
-}
-
 export default HSLayoutSplitter;

@@ -213,8 +213,4 @@ window.addEventListener('load', () => {
 	// console.log('Range slider collection:', window.$hsRangeSliderCollection);
 });
 
-if (typeof window !== 'undefined') {
-	window.HSRangeSlider = HSRangeSlider;
-}
-
 export default HSRangeSlider;

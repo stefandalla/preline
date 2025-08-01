@@ -1027,8 +1027,4 @@ window.addEventListener("resize", () => {
 	window.$hsDropdownCollection.forEach((el) => el.element.resizeHandler());
 });
 
-if (typeof window !== "undefined") {
-	window.HSDropdown = HSDropdown;
-}
-
 export default HSDropdown;

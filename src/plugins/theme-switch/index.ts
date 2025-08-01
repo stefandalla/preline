@@ -227,8 +227,4 @@ if (window.$hsThemeSwitchCollection) {
 	);
 }
 
-if (typeof window !== 'undefined') {
-	window.HSThemeSwitch = HSThemeSwitch;
-}
-
 export default HSThemeSwitch;

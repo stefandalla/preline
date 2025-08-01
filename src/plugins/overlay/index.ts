@@ -829,8 +829,4 @@ window.addEventListener("resize", () => {
 	setBackdropZIndexResizeFn();
 });
 
-if (typeof window !== "undefined") {
-	window.HSOverlay = HSOverlay;
-}
-
 export default HSOverlay;

@@ -328,8 +328,4 @@ window.addEventListener('load', () => {
 	// console.log('Input number collection:', window.$hsInputNumberCollection);
 });
 
-if (typeof window !== 'undefined') {
-	window.HSInputNumber = HSInputNumber;
-}
-
 export default HSInputNumber;

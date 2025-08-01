@@ -204,8 +204,4 @@ window.addEventListener('load', () => {
 	// console.log('Textarea Autoheight collection:', window.$hsTextareaAutoHeightCollection);
 });
 
-if (typeof window !== 'undefined') {
-	window.HSTextareaAutoHeight = HSTextareaAutoHeight;
-}
-
 export default HSTextareaAutoHeight;

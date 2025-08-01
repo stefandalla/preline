@@ -454,8 +454,4 @@ document.addEventListener('scroll', () => {
 	if (target) target.element.recalculateDirection();
 });
 
-if (typeof window !== 'undefined') {
-	window.HSStrongPassword = HSStrongPassword;
-}
-
 export default HSStrongPassword;

@@ -352,8 +352,4 @@ window.addEventListener('load', () => {
 	// console.log('Scroll nav collection:', window.$hsScrollNavCollection);
 });
 
-if (typeof window !== 'undefined') {
-	window.HSScrollNav = HSScrollNav;
-}
-
 export default HSScrollNav;
