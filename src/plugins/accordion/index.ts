@@ -20,7 +20,7 @@ import { ICollectionItem } from '../../interfaces';
 class HSAccordion extends HSBasePlugin<IAccordionOptions> implements IAccordion {
 	private readonly toggle: HTMLElement | null;
 	public content: HTMLElement | null;
-	private readonly animationInProcess: boolean;
+	private animationInProcess: boolean;
 
 	constructor(el: HTMLElement, options?: IAccordionOptions, events?: {}) {
 		super(el, options, events);
@@ -46,11 +46,11 @@ class HSAccordion extends HSBasePlugin<IAccordionOptions> implements IAccordion 
 
 		this.toggle.addEventListener('click', (evt) => {
 			evt.stopPropagation();
-			this.onToggleClick();
+			this.toggleClick(evt);
 		});
 	}
 
-	private onToggleClick() {
+	public toggleClick(evt: Event) {
 		if (this.el.classList.contains('active')) {
 			this.hide();
 		} else {
@@ -73,6 +73,38 @@ class HSAccordion extends HSBasePlugin<IAccordionOptions> implements IAccordion 
 				instance.element.hide();
 			}
 		});
+	}
+
+	public update() {
+		// Re-evaluate properties based on current DOM state
+		const data = this.el.getAttribute('data-hs-accordion');
+		const dataOptions: IAccordionOptions = data ? JSON.parse(data) : {};
+		
+		// Update options if they've changed
+		this.options = { ...this.options, ...dataOptions };
+		
+		// Update collection if necessary
+		const existingIndex = window.$hsAccordionCollection.findIndex(
+			(item) => item.element.el === this.el
+		);
+		if (existingIndex !== -1) {
+			window.$hsAccordionCollection[existingIndex].element = this;
+		}
+	}
+
+	public destroy() {
+		// Remove event listeners
+		if (this.toggle) {
+			this.toggle.removeEventListener('click', this.toggleClick);
+		}
+		
+		// Remove from collection
+		window.$hsAccordionCollection = window.$hsAccordionCollection.filter(
+			(item) => item.element.el !== this.el
+		);
+		
+		// Clean up properties
+		this.content = null;
 	}
 
 	// Public methods
